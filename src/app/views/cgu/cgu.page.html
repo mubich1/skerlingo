@@ -1,0 +1,76 @@
+<ion-header mode="md">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-button mode="md" (click)="close()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="cgu-grid" [ngClass]="{'cgu-pt': isWeb}">
+
+    <div *ngIf="isWeb" class="cgu-web">
+
+      <ion-grid class="grid-segment" fixed>
+        <ion-segment [scrollable]="!webApp" mode="md" [(ngModel)]="segmentModel">
+          <ion-segment-button *ngFor="let item of data" [value]="item.id" layout="icon-start">
+            <ion-label [id]="item.id">{{ item.title }}</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-grid>
+
+      <div *ngFor="let item of faqItems">
+        <div *ngIf="segmentModel == item.id ">
+          <div class="cgu-title">
+            <h3>{{ item.title }}</h3>
+          </div>
+          <ion-grid fixed>
+            <div class="skerlingo-padding faq-content" [innerHtml]="item.content"></div>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+
+    <ion-grid *ngIf="!isWeb" fixed>
+
+      <ion-row>
+        <ion-col sizeXs="12" sizeSm="12" sizeMd="3">
+        </ion-col>
+        <ion-col sizeXs="12" sizeSm="12" sizeMd="6">
+
+
+          <div class="all-cgu">
+
+            <ion-back-button [defaultHref]="'app/profil/parametres'" [text]="'Retour'" [icon]="'arrow-back-sharp'">
+            </ion-back-button>
+
+            <img src="assets/icon/cgvu-page.svg" alt="">
+            <h2>Paramètres <br> de confidentialité</h2>
+
+            <div *ngIf="!data">
+
+              <app-expandable *ngFor="let number of [1,2,3]" [title]="''" [expanded]="false">
+                <div class="faq-content" [innerHtml]="''"></div>
+              </app-expandable>
+
+            </div>
+
+            <app-expandable *ngFor="let item of faqItems" [title]="item.title" [expanded]="item.expanded">
+              <div class="faq-content" [innerHtml]="item.content"></div>
+            </app-expandable>
+          </div>
+
+        </ion-col>
+        <ion-col sizeXs="12" sizeSm="12" sizeMd="3">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

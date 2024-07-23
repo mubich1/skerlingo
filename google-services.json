@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "869527433296",
+    "project_id": "skerlingo",
+    "storage_bucket": "skerlingo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869527433296:android:f8c3af68dc27b6a17f2155",
+        "android_client_info": {
+          "package_name": "com.dromen.skerlingo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869527433296-t8n6fdr55ejdscqutut20recsunho7jq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTwNRGROdmNiXtVs87srmdcc0O0_GXe0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869527433296-t8n6fdr55ejdscqutut20recsunho7jq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-menu-toggle slot="start">
+      <div class="menu-toggle">
+        <img src="assets/icon/menu_icon_dark.svg" />
+      </div>
+    </ion-menu-toggle>
+    <ion-title>boutique</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="boutique-page">
+    <div *ngIf="!data">
+      <ion-segment>
+        <ion-slides class="offres-slide" [options]="slideOpts">
+          <ion-slide>
+            <ion-segment-button>
+              <ion-skeleton-text animated style="height: 17px;width: 100%;margin: 20px 0px;"></ion-skeleton-text>
+            </ion-segment-button>
+          </ion-slide>
+          <ion-slide>
+            <ion-segment-button>
+              <ion-skeleton-text animated style="width: 100%;margin: 20px 0px;"></ion-skeleton-text>
+            </ion-segment-button>
+          </ion-slide>
+          <ion-slide>
+            <ion-segment-button>
+              <ion-skeleton-text animated style="width: 100%;margin: 20px 0px;"></ion-skeleton-text>
+            </ion-segment-button>
+          </ion-slide>
+        </ion-slides>
+      </ion-segment>
+
+      <div class="produits-slide">
+        <ion-slides [options]="slideProduitsOpts">
+          <ion-slide>
+            <ion-skeleton-text animated style="border-radius: 10px;width: 100%; height: 290px">
+            </ion-skeleton-text>
+          </ion-slide>
+          <ion-slide>
+            <ion-skeleton-text animated style="border-radius: 10px;width: 100%; height: 290px">
+            </ion-skeleton-text>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+    <ion-segment class="offres-slide" scrollable value="{{ categorie?.id }}" (ionChange)="segmentChanged($event)">
+      <ion-segment-button *ngFor="let categorie of data?.categories" value="{{categorie.id}}">
+        <ion-label>{{categorie.label}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div class="produits-slide">
+      <ion-slides [options]="slideProduitsOpts">
+        <ion-slide *ngFor="let produit of produits">
+          <div class="produit-slide global-shadow">
+            <div class="img-container" (click)="page_produit(produit)">
+              <img src="{{ produit.image_url }}" />
+            </div>
+            <div class="infos-overlay">
+              <p (click)="page_produit(produit)">{{ produit.label }}
+                <span class="categorie_label">{{ produit.categorie_label }}</span>
+              </p>
+              <ion-row class="ion-align-items-center">
+                <ion-col (click)="page_produit(produit)" size="6" class="ion-no-padding">
+                  <span class="prix">{{ produit.prix }} dhs</span>
+                </ion-col>
+                <ion-col size="6" class="ion-no-padding ion-text-right">
+                  <ion-button (click)="add_to_cart(produit)" shape="round">
+                    <ion-icon name="cart-outline"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <div class="produits">
+
+      <h3 class="sub-title">
+        Populaire
+      </h3>
+      <ion-row *ngFor="let produit of data?.populaires" (click)="page_produit(produit)"
+        class="ion-align-items-center produit">
+        <ion-col size="3">
+          <div class="img">
+            <img src="{{ produit.image_url }}" />
+          </div>
+        </ion-col>
+        <ion-col class="ion-text-left" size="6">
+          <p>{{ produit.label }}
+            <span>{{ produit.categorie_label }}</span>
+          </p>
+        </ion-col>
+        <ion-col size="3">
+          <span class="prix">{{ produit.prix }} dhs</span>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+</ion-content>

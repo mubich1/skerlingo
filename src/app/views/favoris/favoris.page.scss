@@ -1,0 +1,315 @@
+ion-header {
+    ion-toolbar {
+    --background: #F6F6F6;
+    }
+    img {
+      border-radius: 0 !important;
+    }
+  }
+  ion-content {
+    --background: #F6F6F6;
+  }
+  
+.toolbar-candidat {
+    min-height: 67px;
+}
+h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.notification-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #EAEAEA;
+    cursor: pointer;
+    border-radius: 7px;
+    padding: 16px 45px 16px 20px;
+    margin-bottom: 15px;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.05);
+
+    img {
+        position: absolute;
+        width: 55px;
+        height: 57px;
+    }
+    .lettre-img-container {
+        width: 60px;
+        height: 60px;
+        line-height: 43px;
+        position: relative;
+        border-radius: 10px;
+        margin-right: 20px;
+
+        .img-relative {
+            position: relative;
+        }
+        .stars {
+            margin-bottom: 5vh;
+            margin-left: auto;
+            display: flex;
+            justify-content: center;
+            ion-icon {
+              margin-right: 5px;
+              color: #fff;
+              font-size: 1.2rem;
+            }
+          }
+    }
+      
+    
+    h4 {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.1rem;
+        line-height: 22px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+        letter-spacing: -0.02em;
+
+        color: #000000;
+        margin: 0;
+    }
+    p {
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 500;
+        font-size: .95rem;
+        line-height: 21px;
+        display: flex;
+        align-items: center;
+        letter-spacing: -0.02em;
+        color: #6A6968;
+        margin: 0;
+        text-transform: capitalize;
+        margin-top: 5px;
+    }
+    .sonar-icon {
+        top: auto;
+        bottom: 5px;
+    }
+
+    .emogi-icon {
+        width: 18px;
+        height: 18px;
+        border: none;
+        position: absolute;
+        top: -6px;
+        right: -6px;
+    }
+
+    &.article {
+        img {
+            border: none;
+            width: 50px;
+            height: 50px;
+            margin-right: 17px;
+        }
+    }
+
+    &.meeting {
+        h4 {
+            span:first-child {
+                font-size: .8rem;
+                line-height: 18px;
+            }
+        }
+        img {
+            padding: 10px;
+        }
+    }
+
+    &.like {
+        h4 {
+            span:first-child {
+                font-size: .8rem;
+                line-height: 18px;
+            }
+        }
+        
+        ion-button {
+            color: #308EA3;
+            --background: transparent;
+            --border-radius: 5px;
+            --box-shadow: none;
+            --padding-bottom: 5px;
+            --padding-top: 0;
+            --padding-start: 0px;
+            --padding-end: 0px;
+            margin-bottom: 0;
+            width: auto;
+            font-weight: 700;
+            font-size: 0.9rem;
+            height: auto;
+            font-family: "Open Sans";
+            text-transform: none;
+        }
+    }
+}
+
+.candidat-notification {
+    margin-bottom: 20px;
+    position: relative;    
+    display: flex;
+    align-items: center;
+    
+    img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        margin-right: 15px;
+    }
+}
+.notification-item > div {
+    display: grid;
+    position: relative;
+}
+.notification-item:last-child {
+    border-bottom: none;
+}
+.notification-item.unseen-notification {
+    background-color: #EFF5F7;
+    border-bottom: none;
+}
+
+@media (min-width: 361px) {
+    .notification-item {
+        h4 {
+            span:first-child {
+                width: calc(100% - 55px);
+            }
+        }
+    }
+}
+
+.no-data {
+    height: calc(100vh - 250px);
+}
+
+ion-infinite-scroll-content {
+    font-family: 'Open Sans';
+}
+.ion-searchbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.absolute-position-top {
+      display: none;
+    }
+    ion-button {
+        --color: #0D1B26;
+        --padding-end: 0px;
+        --padding-start: 5px;
+        --border-width: 0;
+        font-family: 'Open Sans';
+        font-size: .9rem;
+        margin-left: 8px;
+    }
+  }
+
+ion-searchbar {
+    position: relative;
+    --box-shadow: none;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    --border-radius: 6px;
+    --icon-color: #C3C3C3;
+    color: #000;
+    --background: #F8F8F8;
+    --placeholder-color: #9A9595;
+    --placeholder-opacity: 1;
+    font-family: "Open Sans";
+    --placeholder-font-weight: 400;
+
+    input.searchbar-input {
+      font-size: 14px !important;
+    }
+  }
+
+  ion-searchbar { 
+    &::ng-deep {
+    .searchbar-search-icon {
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        height: 25px !important;
+        width: 25px !important; 
+    }
+      input.searchbar-input.sc-ion-searchbar-md {
+  
+        padding-top: 13px !important;
+        padding-bottom: 13px !important;
+        font-size: 1rem;
+        padding-inline-end: 5px;
+  
+      }
+    }
+  }
+
+  .no-data {
+    img {
+        width: 120px;
+    }
+    h5{
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 800;
+        font-size: 1.5rem;
+        line-height: 32px;
+        text-align: center;
+        letter-spacing: -0.03em;
+        color: #1F1D1C;
+        width: 80%;
+        margin: 12px auto;
+        text-transform: none;
+    }
+    p {
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.1rem;
+        line-height: 27px;
+        text-align: center;
+        letter-spacing: -0.03em;
+        color: #6A6968;
+        max-width: 90%;
+    }
+  }
+
+  .toolbar-candidat {
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    h4 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #0D1B26;
+      margin: 0;
+    }
+    div {
+      margin-left: auto;
+      img {
+        width: 38px;
+        margin-left: 15px;
+      }
+    }
+  }
+  
+@media (min-width: 751px) {
+    .toolbar-candidat {
+        min-height: 50px;
+        h4 {
+            font-size: 1rem;
+        }
+    }
+    ion-content {
+    }
+}

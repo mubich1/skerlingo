@@ -1,0 +1,188 @@
+ion-header {
+    ion-title {
+        max-width: 75%;
+        margin: auto;
+    }
+}
+
+ion-segment {
+    // overwrite inline styles
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    ion-segment-button {
+      display: block;
+      --ripple-color: transparent;
+      ion-label {
+        font-size: 1rem;
+        color: #5B575F;
+        text-transform: none;
+        letter-spacing: 0;
+        margin-top: 0;
+      }
+    }
+    .segment-button-checked {
+      ion-label {
+        color: #4F307E;
+        font-weight: 600;
+      }
+    }
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    margin-top: 20px;
+}
+
+.etapes {
+    min-height: 100vh;
+    background-color: #F8F8F8;
+    padding-top: 1px !important;
+    .etape-item {
+        box-shadow: 0 0 15px rgb(0 0 0 / 4%);
+        border-radius: 7px;
+        padding: 25px 20px 20px 20px;
+        margin-bottom: 15px;
+        position: relative;
+        background-color: #fff;
+        margin-top: 25px;
+    
+        .infos {
+            display: flex;   
+            margin: 20px 0px 30px 0px;
+            div:last-child {
+                margin-left: 15px;
+            }
+            
+            p {
+                margin: 0;
+                margin-top: 0;
+                color: #9797A2;
+                font-size: 0.9rem;
+                line-height: 22px;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+            span {
+                background-color: #EAEFF4;
+                color: #797D88;
+                font-weight: 600;
+                font-size: .9rem;
+                padding: 5px 10px;
+                border-radius: 5px;
+            }
+        }
+
+        
+        ion-button {
+            --background: var(--ion-color-primary);
+            color: #fff;
+            --border-radius: 40px;
+            --box-shadow: none;
+            --padding-bottom: 15px;
+            --padding-top: 15px;
+            --padding-start: 0px;
+            --padding-end: 0px;
+            margin: 0px 0 0 0;
+            width: 100%;
+            font-weight: 700;
+            font-size: 0.9rem;
+            height: auto;
+            text-transform: uppercase;
+      }
+    
+        .img-tags {
+            width: 35px;
+        }
+        
+        h4 {
+            margin-top: 13px;
+            margin-bottom: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0D1B26;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        h5 {
+            color: #B0B0B4;
+            font-size: 1rem;
+            margin-top: 0px;
+        }
+        .arrow-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 25px;
+            width: 13px;
+        }
+    }
+}
+
+.informations {
+    display: table;
+    width: 100%;
+    h4 {
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: #323238;
+        font-weight: 600;
+        padding-left: 20px;
+        margin-top: 25px;
+        margin-bottom: 5px;
+    }
+    .information-item {
+        display: table-row;
+        div {
+            display: table-cell;
+            padding: 15px 20px;
+            border-bottom: 1px solid #F0F0F0;
+            color: #757583;
+            font-size: .9rem;
+        }
+        div:last-child {
+            color: #323238;
+        }
+    }
+}
+
+.services {
+    display: table;
+    width: 100%;
+    h4 {
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: #323238;
+        font-weight: 600;
+        padding-left: 20px;
+        margin-top: 25px;
+        margin-bottom: 5px;
+    }
+    .service-item {
+        display: table-row;
+        div {
+            display: table-cell;
+            padding: 15px 20px;
+            border-bottom: 1px solid #F0F0F0;
+            color: #757583;
+            font-size: .9rem;
+        }
+        div:last-child {
+            border-bottom: none;
+            color: #757583;
+        }
+    }
+}
+
+.no-data {
+    img {
+        width: 125px;
+    }
+}

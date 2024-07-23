@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/home/reservation"></ion-back-button>
+      <ion-title>Horaire</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div (click)="slidePrev()" class="back_btn">
+    <ion-icon name="chevron-back-outline"></ion-icon>
+  </div>
+  <div (click)="slideNext()" class="next_btn">
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </div>
+  <ion-slides #slideCalendar [options]="slideOpts">
+    <ion-slide *ngFor="let semaine of data?.calendar">
+      <div class="creneaux-calendar">
+        <h3 class="sub-title">{{semaine.month}}</h3>
+        <ion-grid>
+          <ion-row class="ion-align-items-center">
+            <ion-col *ngFor="let day of semaine.week">
+              <div (click)="dateRdv(day)" class="creneau-day"
+                [ngClass]="{'creneau-selected': reservationStorage.date == day.date}">
+                <p class=" day_name">{{day.name}}</p>
+                <p class="day">{{day.day}}</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <div class="creneaux-horaires">
+    <div class="creneaux-periode" *ngFor="let periode of periodes">
+      <h4>{{periode.title}}</h4>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="3" *ngFor="let creneau of periode.creneaux">
+          <div (click)="timeRdv(creneau)" class="creneau-time"
+            [ngClass]="{'creneau-selected': reservationStorage.heure == creneau}">
+            <p>{{creneau}}</p>
+          </div>
+        </ion-col>
+        <ion-col class="ion-text-center zero-creneaux" *ngIf="periode.creneaux.length == 0">
+          <p>Il n'y a pas de disponibilités pour cette période</p>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-button (click)="panier()" [disabled]="!reservationStorage || !reservationStorage.heure" expand="block">
+      Continuer <ion-icon name="chevron-forward-outline">
+      </ion-icon>
+    </ion-button>
+  </ion-fab>
+
+</ion-content>

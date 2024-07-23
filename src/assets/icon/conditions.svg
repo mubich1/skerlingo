@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52.146" height="56.946" viewBox="0 0 52.146 56.946">
+  <g id="Icons" transform="translate(0 0.8)">
+    <g id="icons-2" data-name="icons">
+      <line id="Ligne_9" data-name="Ligne 9" x2="13.261" transform="translate(15.219 20.483)" fill="none" stroke="#ff923d" stroke-linecap="round" stroke-width="2"/>
+      <path id="Tracé_381" data-name="Tracé 381" d="M0,0H9.261" transform="translate(15.364 27.151)" fill="none" stroke="#ff923d" stroke-linecap="round" stroke-width="2"/>
+      <path id="Tracé_382" data-name="Tracé 382" d="M0,0H12.261" transform="translate(15.258 33.819)" fill="none" stroke="#ff923d" stroke-linecap="round" stroke-width="2"/>
+      <g id="Rectangle_332" data-name="Rectangle 332" transform="translate(0 3)" fill="none" stroke="#311b46" stroke-width="1.8">
+        <rect width="44" height="46" rx="7" stroke="none"/>
+        <rect x="0.9" y="0.9" width="42.2" height="44.2" rx="6.1" fill="none"/>
+      </g>
+      <line id="Ligne_10" data-name="Ligne 10" y2="8" transform="translate(15)" fill="none" stroke="#311b46" stroke-linecap="round" stroke-width="1.6"/>
+      <line id="Ligne_11" data-name="Ligne 11" y2="8" transform="translate(22)" fill="none" stroke="#311b46" stroke-linecap="round" stroke-width="1.6"/>
+      <line id="Ligne_12" data-name="Ligne 12" y2="8" transform="translate(29)" fill="none" stroke="#311b46" stroke-linecap="round" stroke-width="1.6"/>
+    </g>
+    <g id="check" transform="translate(29.854 33.854)">
+      <g id="Tracé_380" data-name="Tracé 380" fill="#fff">
+        <path d="M 11.14599609375 21.49199676513672 C 5.441195964813232 21.49199676513672 0.7999960780143738 16.85079574584961 0.7999960780143738 11.14599609375 C 0.7999960780143738 5.441195964813232 5.441195964813232 0.7999960780143738 11.14599609375 0.7999960780143738 C 16.85079574584961 0.7999960780143738 21.49199676513672 5.441195964813232 21.49199676513672 11.14599609375 C 21.49199676513672 16.85079574584961 16.85079574584961 21.49199676513672 11.14599609375 21.49199676513672 Z" stroke="none"/>
+        <path d="M 11.14599609375 1.599996566772461 C 5.882316589355469 1.599996566772461 1.599996566772461 5.882316589355469 1.599996566772461 11.14599609375 C 1.599996566772461 16.40967559814453 5.882316589355469 20.69199562072754 11.14599609375 20.69199562072754 C 16.40967559814453 20.69199562072754 20.69199562072754 16.40967559814453 20.69199562072754 11.14599609375 C 20.69199562072754 5.882316589355469 16.40967559814453 1.599996566772461 11.14599609375 1.599996566772461 M 11.14599609375 -3.814697265625e-06 C 17.30175590515137 -3.814697265625e-06 22.29199600219727 4.990236282348633 22.29199600219727 11.14599609375 C 22.29199600219727 17.30175590515137 17.30175590515137 22.29199600219727 11.14599609375 22.29199600219727 C 4.990236282348633 22.29199600219727 -3.814697265625e-06 17.30175590515137 -3.814697265625e-06 11.14599609375 C -3.814697265625e-06 4.990236282348633 4.990236282348633 -3.814697265625e-06 11.14599609375 -3.814697265625e-06 Z" stroke="none" fill="#311b46"/>
+      </g>
+      <path id="Tracé_369" data-name="Tracé 369" d="M0,3.209,2.836,6.1,8.891,0" transform="translate(6.7 8.095)" fill="none" stroke="#ff923d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/>
+    </g>
+  </g>
+</svg>

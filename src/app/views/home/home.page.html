@@ -1,0 +1,65 @@
+<ion-header mode="md">
+  <ion-toolbar>
+    <ion-title>
+      <div class="toolbar-home">
+        <h4></h4>
+        <div>
+          <span (click)="pageGrid()"><img src="assets/icon/menu-home.svg" alt=""></span>
+          <span (click)="parametres()"><img src="assets/icon/menu-params.svg" alt=""></span>
+        </div>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+
+
+  <div class="skerlingo-padding services-container">
+    <h3>{{ dataText.title_h3[currentLang] }}</h3>
+    <h1>{{ dataText.title_h1[currentLang] }}</h1>
+    <div class="section-card" (click)="page_categorie('hiragana')">
+      <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+      <div>
+        <img src="assets/hiragana.svg" alt="">
+      </div>
+      <div>
+        <h4>Hiragana</h4>
+      </div>
+    </div>
+    <div class="section-card" (click)="page_categorie('katakana')">
+      <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+      <div>
+        <img src="assets/katakana.svg" alt="">
+      </div>
+      <div>
+        <h4>Katakana</h4>
+      </div>
+    </div>
+    <div class="section-card section-disabled">
+      <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+      <div>
+        <img src="assets/vocabulaire.svg" alt="">
+      </div>
+      <div>
+        <h4>{{ dataText.vocab[currentLang] }} <span>({{ dataText.vocab_proch[currentLang] }})</span></h4>
+      </div>
+    </div>
+
+    <div (click)="page_lecon()" class="section-card big-icon">
+      <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+      <div>
+        <img src="assets/decouvrez.svg" alt="">
+      </div>
+      <div>
+        <h4>{{ dataText.par_ou[currentLang] }}</h4>
+        <p>{{ dataText.par_ou_desc[currentLang] }}</p>
+      </div>
+    </div>
+
+  </div>
+  <button class="btn-dismiss" *ngIf="showAd" (click)="removeBanner()">
+    <!-- <ion-icon slot="icon-only" name="close-outline"></ion-icon> -->
+    <span>close</span>
+
+</button>
+</ion-content>

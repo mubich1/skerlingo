@@ -1,0 +1,108 @@
+.header-picture-giveaway.visibility-header-picture {
+
+  color: #fff;
+  padding-top: 5px;
+  padding-left: 5px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  height: 210px;
+
+  .menu-toggle {
+    width: 30px;
+  }
+
+  countdown {
+    bottom: 45px;
+    margin: auto;
+    display: block;
+    height: max-content;
+    left: 0;
+    right: 0;
+    width: max-content;
+    transform: rotate(-10deg);
+  }
+}
+
+
+.giveaway-page {
+  z-index: 999;
+  padding: 25px;
+  background: #fff;
+  position: relative;
+  margin-top: -35px;
+  border-top-right-radius: 35px;
+  border-top-left-radius: 35px;
+
+  h2 {
+    font-size: 24px;
+    margin-top: 0;
+    font-weight: 700;
+    margin-bottom: 0px;
+  }
+
+  h4 {
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  p {
+    font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+
+  ul,
+  ol {
+    padding-inline-start: 20px;
+    font-size: 12px;
+  }
+
+  .statut {
+    display: inline-block;
+    margin-bottom: 20px;
+
+    span {
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 13px;
+      border-radius: 11px;
+    }
+  }
+
+  ion-row.btns {
+    ion-col:first-child {
+      ion-button {
+        --background: #eededf;
+        --color: #3a374a;
+        --box-shadow: none;
+        --border-radius: 25px;
+      }
+    }
+
+    ion-col:last-child {
+      ion-button {
+        --color: #eededf;
+        --background: #3a374a;
+        --box-shadow: none;
+        text-transform: capitalize;
+        --border-radius: 25px;
+        font-weight: 300;
+        font-size: 12px;
+
+        ion-icon {
+          margin-right: 10px;
+        }
+      }
+    }
+
+  }
+
+  .congratulation_block {
+    p {
+      font-size: 16px;
+      line-height: 1.2;
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,111 @@
+<ion-header mode="md">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+            <ion-button mode="md" *ngIf="prevStepView" class="step-prev" (click)="change_view()">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title *ngIf="((stepView != 'success' && stepView != 'third') || formType != 2)">Create an
+            account</ion-title>
+        <ion-title *ngIf="(stepView == 'third' && formType == 2)">Soumettez une demande</ion-title>
+        <ion-button mode="md" class="btn-dismiss" (click)="dismissForm()" fill="outline">
+            <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="register_page ion-content-white">
+    <div class="skerlingo-container"
+        [ngClass]="{'ion-align-items-start': (stepView == 'second') || stepView == 'third', 'ion-margin-top': (stepView == 'second')}">
+        <form [formGroup]="registerForm" *ngIf="(stepView != 'third' || formType != 2)">
+
+            <div *ngIf="stepView == 'second'">
+
+                <ion-row class="signin ion-text-right signin-social">
+                    <ion-col class="ion-no-padding">
+                        <ion-button style="opacity: .2;" mode="md" (click)="register_fb()" fill="outline"
+                            class="btn-default btn-social btn-facebook">
+                            <img src="assets/icon/facebook_logo.svg" />
+                            Sign up with Facebook
+                        </ion-button>
+                        <ion-button style="opacity: .2;" mode="md" (click)="register_gp()" fill="outline"
+                            class="btn-default btn-social btn-google">
+                            <img src="assets/icon/google_logo.svg" />
+                            Sign up with Gmail
+                        </ion-button>
+                        <ion-button *ngIf="platform.is('ios')" mode="md" (click)="register_apple()" fill="outline"
+                            class="btn-default btn-social btn-apple">
+                            <img src="assets/icon/apple.svg" />
+                            Continuer avec Apple
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                <div class="separate_ou">
+                    <div></div>
+                    <span>or</span>
+                </div>
+                <ion-button mode="md" (click)="change_view('third')">
+                    Sign up with email
+                </ion-button>
+            </div>
+            <div class="p-100" *ngIf="stepView == 'third'">
+                <ion-list class="ion-list-form">
+                    <ion-item lines="none">
+                        <ion-label mode="md" position="floating">Name</ion-label>
+                        <ion-input formControlName="lastName" [ngClass]="{'input-error': errors.includes('lastName') }"
+                            type="text">
+                        </ion-input>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-label mode="md" position="floating">Email</ion-label>
+                        <ion-input formControlName="email" [ngClass]="{'input-error': errors.includes('email') }"
+                            type="email">
+                        </ion-input>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-label mode="md" position="floating">Password</ion-label>
+                        <ion-input formControlName="password" [ngClass]="{'input-error': errors.includes('password') }"
+                            [type]="showPwd ? 'text' : 'password'">
+                        </ion-input>
+                        <div class="show-pwd">
+                            <ion-icon [name]=" pwdIcon" (click)="togglePwd()"></ion-icon>
+                        </div>
+                    </ion-item>
+                </ion-list>
+
+                <div class="cgu-cta">
+                    <ion-item lines="none">
+                        <ion-checkbox [ngClass]="{'input-error': errors.includes('terms') }" formControlName="terms">
+                        </ion-checkbox>
+                        <ion-label>I accept the</ion-label>
+                    </ion-item>
+                    <span (click)="cgu_page()">conditions of use</span>
+                </div>
+                <div class="btn-sinscrire btn-web" (click)="onSignUp()">
+                    <ion-button>
+                        Create my account
+                    </ion-button>
+                </div>
+            </div>
+            <div *ngIf="stepView == 'success'">
+                <div class="no-data success-data">
+                    <div>
+                        <img src="assets/icon/success-register.svg" alt="">
+                        <h5>{{ formType == 1 ? 'Confirmez votre inscription !' : 'E-mail envoyé !' }}</h5>
+                        <p>{{ message }}</p>
+                        <ion-button *ngIf="formType == 1" mode="md" (click)="open_gmail()">
+                            Voir mon email
+                        </ion-button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</ion-content>
+
+<div class="btn-sinscrire btn-mobile" hidden (click)="onSignUp()" *ngIf="stepView == 'third'">
+    <ion-button>
+        Create my account
+    </ion-button>
+</div>

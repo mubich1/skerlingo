@@ -1,0 +1,43 @@
+<ion-content>
+  <div *ngIf="produit" class="header-picture header-picture-produit visibility-header-picture">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <div class="img-container">
+          <img src="{{ produit.image_url }}" />
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="img-container">
+          <img src="{{ produit.image_url }}" />
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="img-container">
+          <img src="{{ produit.image_url }}" />
+        </div>
+      </ion-slide>
+    </ion-slides>
+    <div class="menu-toggle">
+      <ion-back-button defaultHref="tabs/boutique"></ion-back-button>
+    </div>
+  </div>
+  <div *ngIf="produit" class="produit-page">
+    <h2>{{ produit.label }}</h2>
+    <h4>{{ produit.categorie_label }}</h4>
+    <span class="prix">{{ produit.prix }} dhs</span>
+    <p>{{ produit.description }}</p>
+    <ion-row class="ion-align-items-center btns">
+      <ion-col size="3">
+        <ion-button (click)="add_to_cart(produit)" expand="block">
+          <ion-icon name="cart-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="9">
+        <ion-button (click)="page_panier(produit)" expand="block">
+          <ion-icon name="basket-outline"></ion-icon> Acheter maintenant
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </div>
+</ion-content>

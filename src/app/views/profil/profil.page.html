@@ -1,0 +1,220 @@
+<ion-content>
+  <div class="header-picture visibility-header-picture">
+    <ion-menu-toggle slot="start">
+      <div class="menu-toggle">
+        <img src="assets/icon/menu_icon.svg" />
+      </div>
+    </ion-menu-toggle>
+    <div class="profil-header" *ngIf="data">
+      <ion-row class="ion-align-items-center prestation">
+        <ion-col size="5">
+        </ion-col>
+        <ion-col class="ion-text-left" size="7">
+          <h3>{{ data.client.nom + ' ' + data.client.prenom }}</h3>
+          <ion-button (click)="compte()" class="btn-default btn-modifier" size="small" color="light" fill="outline">
+            Editer le profil
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <div *ngIf="data" class="img-profil" [style.background-image]="'url('+ data.client.image_url +')'"></div>
+
+  <ion-segment scrollable value="reservations" [(ngModel)]="segmentModel" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="reservations">
+      <ion-icon name="time-outline"></ion-icon>
+      <ion-label>Réservations</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="avis">
+      <ion-icon name="heart-half-outline"></ion-icon>
+      <ion-label>Avis</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="achats">
+      <ion-icon name="cart-outline"></ion-icon>
+      <ion-label>Achats</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="profil-page">
+
+    <div class="seg_reservations" *ngIf="segmentModel === 'reservations'">
+      <div *ngIf="!data">
+        <ion-skeleton-text animated style="width: 70%;margin: 20px 0px;height: 15px;"></ion-skeleton-text>
+        <ion-skeleton-text animated style="border-radius: 26px; width: 100%; height: 205px;">
+        </ion-skeleton-text>
+      </div>
+
+      <div *ngIf="data" class="last-reservations-slide">
+        <h1>Prochain rendez-vous</h1>
+        <div class="last-reservation-slide" *ngFor="let reservation of data?.next_reservation">
+          <div class="header-slide">
+            <ion-row class="ion-align-items-center prestation">
+              <ion-col size="10">
+                <div class="infos-header">
+                  <ion-icon name="time"></ion-icon>
+                  <span>{{reservation.date}} - {{reservation.heure}}</span>
+                </div>
+              </ion-col>
+              <ion-col (click)="presentActionSheet(reservation)" class="ion-text-right toggle-menu" size="2">
+                <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="body-slide">
+            <div class="statut" *ngIf="reservation.statut">
+              <span [style.color]="'rgb('+ reservation.statut.color +')'"
+                [style.background-color]="'rgb('+ reservation.statut.color +',.2)'">
+                {{ reservation.statut.label }}
+              </span>
+            </div>
+            <div class="prestations">
+              <ion-row *ngFor="let prestation of reservation?.prestations" class="ion-align-items-center prestation">
+                <ion-col size="3">
+                  <div class="img" [style.background-image]="'url('+ prestation.image_url +')'"></div>
+                </ion-col>
+                <ion-col class="ion-text-left" size="9">
+                  <p>{{ prestation.label }}</p>
+                  <span>{{ prestation.duree_pretty }}</span>
+                </ion-col>
+              </ion-row>
+            </div>
+          </div>
+        </div>
+        <div class="aucun_prochain_rdv" *ngIf="data && !data?.next_reservation">
+          <p>
+            Vous n'avez aucun prochain rendez-vous
+          </p>
+          <ion-button (click)="reserver()">
+            Réserver maintenant
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+
+      <div class="reservations" *ngIf="data?.reservations?.length > 0">
+        <h3 class="sub-title">
+          Autres réservations
+        </h3>
+        <div class="reservation" *ngFor="let reservation of data?.reservations">
+          <ion-row class="ion-align-items-center">
+            <ion-col size="3">
+              <div *ngIf="reservation?.prestations" class="img"
+                [style.background-image]="'url('+ reservation.prestations[0].image_url +')'"></div>
+            </ion-col>
+            <ion-col size="7">
+              <div class="infos-reservation">
+                <p *ngIf="reservation?.prestations?.length == 1">
+                  <span *ngFor="let prestation of reservation?.prestations">
+                    {{ prestation.label }}
+                  </span>
+                </p>
+                <p *ngIf="reservation?.prestations?.length > 1">
+                  <span>
+                    {{ reservation.prestations.length }} préstations
+                  </span>
+                </p>
+                <span>{{reservation.date}} - {{reservation.heure}}</span>
+                <div class="statut" *ngIf="reservation.statut">
+                  <span [style.color]="'rgb('+ reservation.statut.color +')'"
+                    [style.background-color]="'rgb('+ reservation.statut.color +',.2)'">
+                    {{ reservation.statut.label }}
+                  </span>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col (click)="presentActionSheet(reservation)" class="ion-text-right toggle-menu" size="2">
+              <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="seg_avis" *ngIf="segmentModel === 'avis'">
+      <div *ngIf="data" class="last-evaluations-slide">
+        <h1>Mes Avis</h1>
+        <div class="last-evaluation-slide" *ngFor="let reservation of data?.evaluations">
+          <div class="header-slide">
+            <ion-row class="ion-align-items-center prestation">
+              <ion-col size="10">
+                <div class="infos-header">
+                  <ion-icon name="time"></ion-icon>
+                  <span>{{reservation.date}} - {{reservation.heure}}</span>
+                </div>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="body-slide">
+            <div class="prestations">
+              <ion-row *ngFor="let prestation of reservation?.prestations" class="ion-align-items-center prestation">
+                <ion-col size="3">
+                  <div class="img" [style.background-image]="'url('+ prestation.image_url +')'"></div>
+                </ion-col>
+                <ion-col class="ion-text-left" size="6">
+                  <p>{{ prestation.label }}</p>
+                  <span>{{ prestation.duree_pretty }}</span>
+                </ion-col>
+                <ion-col class="ion-text-center" size="3">
+                  <ion-badge class="prestation_rating">
+                    <ion-icon name="star-half-outline"></ion-icon> {{prestation.notation}}/5
+                  </ion-badge>
+                </ion-col>
+              </ion-row>
+            </div>
+          </div>
+        </div>
+        <div class="aucun_prochain_rdv" *ngIf="data && !data?.evaluations">
+          <p>
+            Vous n'avez aucun avis
+          </p>
+          <ion-button (click)="reserver()">
+            Réserver maintenant
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="seg_commandes" *ngIf="segmentModel === 'achats'">
+      <div *ngIf="data" class="last-commandes-slide">
+        <h1>Mes commandes</h1>
+        <div class="last-commande-slide" *ngFor="let commande of data?.commandes">
+          <div class="header-slide">
+            <ion-row class="ion-align-items-center prestation">
+              <ion-col size="10">
+                <div class="infos-header">
+                  <ion-icon name="time"></ion-icon>
+                  <span>{{commande.date}}</span>
+                  <ion-icon name="cash-outline"></ion-icon>
+                  <span>{{commande.prix}} DHS</span>
+                </div>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="body-slide">
+            <div class="statut" *ngIf="commande.statut">
+              <span [style.color]="'rgb('+ commande.statut.color +')'"
+                [style.background-color]="'rgb('+ commande.statut.color +',.2)'">
+                {{ commande.statut.label }}
+              </span>
+            </div>
+            <div class="produits">
+              <ion-row *ngFor="let produit of commande?.produits" class="ion-align-items-center produit">
+                <ion-col size="3">
+                  <div class="img">
+                    <img src="{{ produit.image_url }}" />
+                  </div>
+                </ion-col>
+                <ion-col class="ion-text-left" size="9">
+                  <p>{{ produit.label }}</p>
+                  <span>{{ produit.prix }} dhs</span>
+                </ion-col>
+              </ion-row>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

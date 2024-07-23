@@ -1,0 +1,93 @@
+<ion-header mode="md">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-toolbar>
+
+  <ion-segment scrollable value="etapes" [(ngModel)]="segmentModel">
+    <ion-segment-button value="etapes" layout="icon-start">
+      <ion-label>Etapes</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="details" layout="icon-start">
+      <ion-label>Détails de l'étape</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="segmentModel === 'etapes'" class="etapes skerlingo-padding">
+
+    <div *ngIf="!data">
+      <div class="etape-item" *ngFor="let number of [1, 2, 3]">
+        <div>
+          <ion-skeleton-text animated
+            style="height: 16px !important; border-radius: 0; width: 100%; margin-bottom: 11px; margin-top: 10px;">
+          </ion-skeleton-text>
+          <ion-skeleton-text animated
+            style="height: 10px !important; border-radius: 0; width: 70%; margin-bottom: 15px;">
+          </ion-skeleton-text>
+          <div class="infos">
+            <div>
+              <p>Montant</p>
+              <ion-skeleton-text animated
+                style="height: 18px !important; border-radius: 0; width: 90px; margin-bottom: 15px;">
+              </ion-skeleton-text>
+            </div>
+            <div>
+              <p>État</p>
+              <ion-skeleton-text animated
+                style="height: 18px !important; border-radius: 0; width: 120px; margin-bottom: 15px;">
+              </ion-skeleton-text>
+            </div>
+          </div>
+          <ion-button>
+            <ion-skeleton-text animated style="height: 18px !important; border-radius: 0; width: 150px; margin: 0;">
+            </ion-skeleton-text>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="etape-item" *ngFor="let etape of data?.etapes" (click)="etape_page(etape)">
+        <div>
+          <h4>{{ etape.label }}</h4>
+          <h5>{{ etape.date }}</h5>
+          <div class="infos">
+            <div>
+              <p>Montant</p>
+              <span>{{ etape.prix }} euros</span>
+            </div>
+            <div>
+              <p>État</p>
+              <span [style.color]="'rgb('+ etape.statut_color +')'"
+                [style.background-color]="'rgb('+ etape.statut_color +',.2)'">{{ etape.statut_label }}</span>
+            </div>
+          </div>
+          <ion-button>
+            DÉTAILS DE L'ÉTAPE
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="segmentModel === 'details'">
+    <div class="informations">
+      <h4 *ngIf="data?.reponses.length > 0">Informations</h4>
+      <div class="information-item" *ngFor="let reponse of data?.reponses">
+        <div>{{ reponse.question_label }}</div>
+        <div>{{ reponse.reponse_label }}</div>
+      </div>
+    </div>
+    <div class="services">
+      <h4 *ngIf="data?.services_optionnel.length > 0">SERVICES OPTIONNELS</h4>
+      <div class="service-item" *ngFor="let service of data?.services_optionnel">
+        <div>{{ service.service_label }}</div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

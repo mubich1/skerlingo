@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Skerlingo</string>
+    <string name="title_activity_main">Skerlingo</string>
+    <string name="package_name">com.example13.app</string>
+    <string name="custom_url_scheme">com.example13.app</string>
+    <string name="fb_app_id">io.ionic.starter</string>
+    <string name="fb_app_name">ionic-demo</string>
+    <string name="server_client_id">
+        869527433296-t8n6fdr55ejdscqutut20recsunho7jq.apps.googleusercontent.com</string>
+    <bool name="fb_auto_log_app_events_enabled">true</bool>
+    <bool name="fb_advertiser_id_collection_enabled">true</bool>
+    <string name="admob_app_id">ca-app-pub-8346175466659853~8742017456</string>
+</resources>

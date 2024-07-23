@@ -1,0 +1,48 @@
+<ion-header mode="md">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-button mode="md" class="btn-dismiss" (click)="dismissForm()" fill="outline">
+      <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+    </ion-button>
+    <ion-title><span>{{ avis_infos?.title }}</span><span>{{ avis_infos?.title }}</span></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="avis-container">
+    <div>
+
+      <div class="avis-infos skerlingo-padding">
+        <div class="lettre-img-container" [ngStyle]="{'background-color': avis_infos?.color}">
+          <img [src]="avis_infos?.illustration" alt="">
+          <img class="img-relative" [src]="avis_infos.illustration_letter" alt="">
+        </div>
+        <h4>{{ dataText.title_h4[currentLang] }}</h4>
+        <p>{{ dataText.description[currentLang] }}</p>
+      </div>
+
+      <form [formGroup]="avisForm">
+
+        <div class="skerlingo-padding skerlingo-no-pt">
+          <ion-list class="ion-list-form">
+            <ion-item lines="none" class="ion-textarea-form">
+              <ion-label mode="md" position="floating">{{ dataText.commentaire[currentLang] }}</ion-label>
+              <ion-textarea formControlName="description" [ngClass]="{'input-error': errors.includes('description') }"
+                maxlength="500">
+                <span class="count-chars">{{ avisForm.controls['description'].value.length+'/500' }}</span>
+              </ion-textarea>
+            </ion-item>
+
+          </ion-list>
+
+          <ion-button (click)="saveForm()" mode="md">{{ dataText.btn[currentLang] }}
+          </ion-button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</ion-content>

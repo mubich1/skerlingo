@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/home"></ion-back-button>
+      <ion-title>Sélection</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="reservation" class="reservation-page">
+    <ion-row style="width: 100%;" class="ion-align-items-center">
+      <ion-col size="6">
+        <h3 class="sub-title">
+          Prestation
+        </h3>
+      </ion-col>
+      <ion-col size="6" class="ion-text-right">
+        <ion-button (click)="home_page()" fill="clear">
+          <ion-icon name="add-outline"></ion-icon>
+          Ajouter
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <div class="prestations">
+
+      <ion-row *ngFor="let prestation of reservationStorage?.prestations" class="ion-align-items-center prestation">
+        <ion-col size="4">
+          <div class="img" [style.background-image]="'url('+ prestation.image_url +')'"></div>
+        </ion-col>
+        <ion-col size="6">
+          <p>{{ prestation.label }}</p>
+          <span>{{ prestation.duree_pretty }}</span>
+        </ion-col>
+        <ion-col size="2">
+          <ion-icon (click)="deletePrestation(prestation)" name="close-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="membres">
+      <ion-list>
+        <ion-radio-group (ionChange)="membreRdv($event)" [value]="reservationStorage?.membre">
+          <h3 class="sub-title">
+            Professionnel
+          </h3>
+
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <ion-img src="https://image.flaticon.com/icons/svg/2936/2936866.svg"></ion-img>
+            </ion-avatar>
+            <ion-label>Sans préference</ion-label>
+            <ion-radio value="sans" checked></ion-radio>
+          </ion-item>
+
+          <ion-item lines="none" *ngFor="let membre of reservation?.membres">
+            <ion-avatar slot="start">
+              <ion-img [src]="membre.image_url"></ion-img>
+            </ion-avatar>
+            <ion-label>{{ membre.prenom }}</ion-label>
+            <ion-radio value="{{ membre.id }}"></ion-radio>
+          </ion-item>
+
+        </ion-radio-group>
+
+      </ion-list>
+    </div>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-button (click)="creneaux()" expand="block">Choisir une date <ion-icon name="chevron-forward-outline">
+      </ion-icon>
+    </ion-button>
+  </ion-fab>
+
+</ion-content>

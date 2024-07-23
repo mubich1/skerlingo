@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/home"></ion-back-button>
+    </ion-buttons>
+    <span slot="end" class="grid" (click)="page_grid()"><img src="assets/icon/menu-home.svg" alt=""></span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="services-container skerlingo-padding">
+    <div *ngIf="data" class="categorie-header">
+      <img src="assets/apprend.svg" alt="">
+      <h3>{{ data?.title }} <span>{{ dataText.title[currentLang] }}</span></h3>
+      <p>{{ dataText['title_desc_'+categorie][currentLang] }}</p>
+    </div>
+
+    <!--  First -->
+    <div class="section-card" (click)="page_lecon(data?.lecons[0])"
+    [ngClass]="{'done': getIfDone(data?.lecons[0].id), 'cadena': data?.lecons[0]?.cadena }">
+    <ion-icon *ngIf="getIfDone(data?.lecons[0]?.id)" class="done-icon" name="checkmark-done"></ion-icon>
+    <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+    <div class="letter_container">
+      <img *ngIf="!data?.lecons[0]?.letter" src="assets/lightbulbIcon.svg" alt="">
+      <img *ngIf="data?.lecons[0]?.cadena" src="assets/cadena.svg" alt="">
+      <span *ngIf="data?.lecons[0]?.letter" class="letter">{{ data?.lecons[0]?.letter }}</span>
+    </div>
+    <div>
+      <h4>{{ data?.lecons[0]['label_'+currentLang] }} <span *ngIf="data?.lecons[0]?.letter && !data?.lecons[0]?.cadena && !getIfDone(data?.lecons[0]?.id)">You are here !</span>
+      </h4>
+      <p>{{ data?.lecons[0]['introduction_'+currentLang] }}</p>
+    </div>
+  </div>
+
+  <h6 class="portion"> Learn {{ data?.lecons[0]['introduction_'+currentLang]}} </h6>
+
+    <!--  Second -->
+    <div *ngFor="let lecon of data?.lecons; let i = index">
+    <div class="section-card" *ngIf="lecon.lessonType =='lesson' "  (click)="page_lecon(lecon)"
+    [ngClass]="{'done': getIfDone(lecon.id), 'cadena': lecon.cadena }">
+    <ion-icon *ngIf="getIfDone(lecon.id)" class="done-icon" name="checkmark-done"></ion-icon>
+    <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+    <div class="letter_container">
+      <img *ngIf="!lecon.letter" src="assets/lightbulbIcon.svg" alt="">
+      <img *ngIf="lecon.cadena" src="assets/cadena.svg" alt="">
+      <span *ngIf="lecon.letter" class="letter">{{ lecon.letter }}</span>
+    </div>
+    <div>
+      <h4>{{ lecon['label_'+currentLang] }} <span *ngIf="lecon.letter && !lecon.cadena && !getIfDone(lecon.id)">You are here !</span>
+      </h4>
+      <p>{{ lecon['introduction_'+currentLang] }}</p>
+    </div>
+  </div>
+</div>
+
+      <!--  Third -->
+      <h6 class="portion"> Additional Lessons</h6>
+      <div *ngFor="let lecon of data?.lecons; let i = index">
+        <div class="section-card" *ngIf="lecon.lessonType =='additional' " (click)="page_lecon(lecon)"
+        [ngClass]="{'done': getIfDone(lecon.id), 'cadena': lecon.cadena }">
+        <ion-icon *ngIf="getIfDone(lecon.id)" class="done-icon" name="checkmark-done"></ion-icon>
+        <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+        <div class="letter_container">
+          <!-- <img *ngIf="!lecon.letter" src="assets/lightbulbIcon.svg" alt=""> -->
+          <img *ngIf="lecon.cadena" src="assets/cadena.svg" alt="">
+          <span *ngIf="lecon.additionalCount" class="letter">{{ lecon.additionalCount }}</span>
+        </div>
+        <div>
+          <h4>
+            <span *ngIf="lecon.additionalCount && !lecon.cadena && !getIfDone(lecon.id)">You are here !</span>
+          </h4>
+          <!-- <p>{{ lecon['introduction_'+currentLang] }}</p> -->
+          <h4>{{ lecon['introduction_'+currentLang] }} </h4>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

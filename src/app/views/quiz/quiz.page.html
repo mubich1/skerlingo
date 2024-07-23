@@ -1,0 +1,200 @@
+<ion-header>
+  <ion-toolbar [ngClass]="{'quiz-congrat-content': textDemarrage.show && resultatScore}">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <span *ngIf="!currentQuestion" slot="end" class="grid" (click)="page_grid()"><img src="assets/icon/menu-home.svg" alt=""></span>
+    <ion-title>
+      <div *ngIf="currentQuestion" class="toolbar-home toolbar-home-quiz">
+        <h4>Quiz <span>{{ categorie }}</span></h4>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="{'quiz-congrat-content': textDemarrage.show && resultatScore}" padding>
+  <div *ngIf="!currentQuestion && !textDemarrage.resultat && !lecon_id" class="services-container skerlingo-padding">
+    <div class="categorie-header">
+      <img src="assets/gar.svg" alt="">
+      <h4>{{ categorie }}</h4>
+      <h3>{{ !quizContent ? 'Choose a quizz content' : 'Choose a quizz mode' }}</h3>
+    </div>
+
+    <div *ngIf="!quizContent">
+
+
+      <div class="section-card" (click)="startQuiz(true,'basic')">
+
+        <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+        <div>
+          <span class="letter">B</span>
+        </div>
+        <div>
+          <h4>Basic</h4>
+          <p>a, i, u, e, o</p>
+        </div>
+      </div>
+
+      <div class="section-card" (click)="startQuiz(true, 'modified')">
+        <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+        <div>
+          <span class="letter">M</span>
+        </div>
+        <div>
+          <h4>Modified</h4>
+          <p>ga, gi, gu, ge, go</p>
+        </div>
+      </div>
+
+      <div class="section-card" (click)="startQuiz(true, 'combo')">
+        <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+        <div>
+          <span class="letter">C</span>
+        </div>
+        <div>
+          <h4>Combo</h4>
+          <p>kya, kyu, kyo</p>
+        </div>
+      </div>
+
+      <div class="section-card" (click)="startQuiz(true, 'all')">
+        <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+        <div>
+          <span class="letter">A</span>
+        </div>
+        <div>
+          <h4>All</h4>
+        </div>
+      </div>
+
+      <div class="section-card" (click)="startQuiz(true, 'examples')">
+        <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+        <div>
+          <span class="letter">E</span>
+        </div>
+        <div>
+          <h4>Examples</h4>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="quizContent">
+
+
+      <div class="section-card" (click)="startQuiz()">
+
+        <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+        <div>
+          <span class="letter">L</span>
+        </div>
+        <div>
+          <h4>Lecture</h4>
+          <p>Japanese > English</p>
+        </div>
+      </div>
+
+      <div class="section-card" (click)="startQuiz(true)">
+        <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+        <div>
+          <span class="letter">R</span>
+        </div>
+        <div>
+          <h4>Acknowledgement</h4>
+          <p>Japanese > English</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="skerlingo-padding">
+    <div class="quiz-matiere">
+      <div *ngIf="currentQuestion" class="quiz quiz-header">
+        <div class="ressource">
+          <ion-row align-items-center class="progress_counter">
+            <ion-col *ngIf="!lecon_id">
+              <span class="title-progress">Correct</span>
+              <div class="progress-container progress-correct">
+                <span>{{ countCorrectAnswers | number:'2.0' }}</span>
+                <div class="progress">
+                  <div [ngStyle]="{'width': pourcentageQuizCorrect+'%','color': _result.color}" class="progress-bar"
+                    role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col col-5 class="text-center">
+              <span class="title-progress">Questions</span>
+              <p class="questions">{{ (currentQuestionIndex < _result.questions.length ? currentQuestionIndex + 1 :
+                  currentQuestionIndex)+'/'+_result.questions.length}}</p>
+            </ion-col>
+            <ion-col *ngIf="!lecon_id" class="text-right">
+              <span class="title-progress">Mistakes</span>
+              <div class="progress-container progress-wrong">
+                <span>{{ countWrongAnswers | number:'2.0' }}</span>
+                <div class="progress">
+                  <div [ngStyle]="{'width': pourcentageQuizWrong+'%','color': _result.color}" class="progress-bar"
+                    role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+      <div class="quiz">
+        <div class="ressource">
+          <div *ngIf="currentQuestion" class="questions_quiz">
+
+            <h2>Choose the right answer</h2>
+            <h3>{{ reconnaissance ? currentQuestion.romaji : currentQuestion.question}}</h3>
+            <div class="reponses">
+              <span *ngFor="let reponse of currentQuestion.reponses; let i=index" (click)="answerQuestion(reponse, i)"
+                [ngClass]="reponseIndex == i ? (reponse.correct?'correct' : 'wrong'):(reponseIndex !== null && reponseIndex >= 0 && reponseIndex != i && reponse.correct)?'correct':'' ">
+                <img *ngIf="reponseIndex == i && !reponse.correct" src="assets/wrong.svg" alt="">
+                <img
+                  *ngIf="(reponseIndex == i && reponse.correct) || (reponseIndex !== null && reponseIndex >= 0  && reponseIndex != i  && reponse.correct)"
+                  src="assets/correct.svg" alt="">
+                {{reconnaissance ? reponse.kana : reponse.reponse}}
+              </span>
+
+              <ion-button
+                *ngIf="reponseIndex !== null && reponseIndex >= 0 && currentQuestionIndex !== null && currentQuestionIndex >= 0 && _result?.questions[currentQuestionIndex]"
+                (click)="goToNextQuestion()" ion-button>
+                Next
+              </ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="textDemarrage.show && resultatScore" class="quiz-result">
+        <img src="assets/icon/quiz-result.svg" alt="">
+        <h5>Congratulations !</h5>
+        <h6 *ngIf="false">That’s your quizz session number 21 !</h6>
+        <div class="your-score" *ngIf="textDemarrage.resultat && resultatScore">
+          <h6>Your result</h6>
+          <p>
+            <span>Today : {{ today }}</span>
+            <span>Quiz mode : Reading</span>
+            <span>(10 questions)</span>
+          </p>
+          <div class="score-count">
+            <p>{{countCorrectAnswers}}<span>Correct</span></p>
+            <p>{{countWrongAnswers}}<span>Mistake</span></p>
+          </div>
+          <button *ngIf="resultatScore?.can_replay && !lecon_id" ion-button icon-start>
+            Show answers log
+          </button>
+        </div>
+        <div class="quiz-result-actions">
+          <ion-button (click)="tryAgain()" ion-button>
+            Try again
+          </ion-button>
+          <ion-button (click)="closeQuiz()" class="quiz-close" ion-button>
+            Close
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

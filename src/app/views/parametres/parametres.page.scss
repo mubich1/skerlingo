@@ -1,0 +1,185 @@
+ion-content {
+    --background: #fff;
+}
+ion-header {
+    ion-toolbar {
+    --background: #fff;
+    }
+}
+
+h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    line-height: 1;
+}
+h3 {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: .9rem;
+    line-height: 21px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.02em;
+
+    color: #B1B1B1;
+    margin-bottom: 20px;
+
+}
+.section-card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #E5E5E5;
+    border-radius: 7px;
+    padding: 7px 10px 7px 20px;
+    margin-bottom: 15px;
+    position: relative;
+    box-shadow: none;
+
+    div:last-child {
+        margin-left: 20px;
+    }
+    img {
+        width: 30px;
+        max-width: initial;
+    }
+    h4 {
+        margin-top: 0;
+        margin-bottom: 0px;
+        font-size: .85rem;
+        font-weight: 700;
+        color: #0D1B26;
+    }
+    p {
+        margin: 0;
+        margin-top: 5px;
+        color: #5B6069;
+        font-family: 'Open Sans';
+        font-size: .8rem;
+        line-height: 20px;
+        padding-right: 15px;
+    }
+    .arrow-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 25px;
+        width: 13px !important;
+    }
+    ion-item {
+        --inner-padding-start: 0px;
+        --padding-start: 0;
+        --padding-end: 0;
+        --inner-padding-end: 0;
+        --min-height: 0px;
+        ion-label {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 0;
+            color: var(--ion-color-primary);
+        }
+
+        ion-select {
+            width: 100%;
+            max-width: 100%;
+            --padding-top: 10px;
+            --padding-bottom: 10px;
+            --padding-start: 15px;
+            font-family: "Open Sans";
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        ion-toggle {
+            height: 25px;
+            --handle-height: 19px;
+            --handle-width: 19px;
+            --handle-border-radius: 50%;
+            --handle-spacing: 3px;
+            padding-right: 10px;
+            width: 45px;
+            --background: #D0D0D0;
+        }
+    }
+}
+
+.btn-deconnexion {
+    margin-top: auto!important;
+    width: 100%;
+    ion-button {
+        color: var(--ion-color-primary);
+      --background: #F0F8FA;
+      --border-radius: 5px;
+      --box-shadow: none;
+      --padding-bottom: 20px;
+      --padding-top: 20px;
+      --padding-start: 0px;
+      --padding-end: 0px;
+      margin: 0px 0 0 0;
+      width: 100%;
+      font-weight: 700;
+      font-size: .9rem;
+      height: auto;
+      text-transform: uppercase;
+      ion-icon {
+        position: absolute;
+        left: 25px;
+      }
+    }
+}
+
+.delete-account{
+    margin-top: 5px !important;
+}
+
+.without-icon {
+    p {
+        font-size: 0.96rem;
+        line-height: 25px;
+        margin-bottom: 5px;
+        margin-top: 7px;
+    }
+
+    ion-item {
+        --inner-padding-start: 0px;
+        --padding-start: 0;
+        --padding-end: 0;
+        --inner-padding-end: 0;
+        --min-height: 0px;
+        margin-left: auto;
+        ion-label {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 0;
+            color: var(--ion-color-primary);
+        }
+        ion-toggle {
+            height: 30px;
+            --handle-height: 22px;
+            --handle-width: 22px;
+            --handle-border-radius: 50%;
+            --handle-spacing: 3px;
+            padding-right: 10px;
+            width: 49px;
+            --background: #D0D0D0;
+            --background-checked: #5DB21F;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    ion-grid {
+      padding: 0;
+      ion-row {
+        margin: 0px 0px;
+        ion-col {
+            --ion-grid-column-padding: 0px;
+        }
+      }
+    }
+}

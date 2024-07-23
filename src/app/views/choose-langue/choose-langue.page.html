@@ -1,0 +1,34 @@
+<ion-content [fullscreen]="true" [scrollEvents]="true">
+
+
+  <div class="skerlingo-padding services-container">
+    <div>
+      <h3>Skerlingo</h3>
+      <h1>{{ dataText.title_h1[currentLang] }}</h1>
+      <div [ngClass]="{'card-checked': langue == 'fr' }" class="section-card" (click)="choose_langue('fr')">
+
+        <div>
+          <img src="assets/france.svg" alt="">
+        </div>
+        <span class="circle"></span>
+        <div>
+          <h4>{{ dataText.french[currentLang] }}</h4>
+        </div>
+      </div>
+      <div [ngClass]="{'card-checked': langue == 'en' }" class="section-card" (click)="choose_langue('en')">
+
+        <div>
+          <img src="assets/Group.svg" alt="">
+        </div>
+        <span class="circle"></span>
+        <div>
+          <h4>{{ dataText.english[currentLang] }}</h4>
+        </div>
+      </div>
+      <ion-button (click)="goTo()">
+        {{ dataText.continuer[currentLang] }}
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

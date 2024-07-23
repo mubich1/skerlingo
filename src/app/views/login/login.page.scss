@@ -1,0 +1,126 @@
+.ion-content-white {
+  --background: #fff;
+}
+ion-toolbar {
+  --background: #fff;
+}
+ion-content {
+
+
+  .skerlingo-padding {
+    /*
+    height: 100%;
+    display: flex;
+    align-items: center;
+    */
+  }
+
+  .message_danger {
+    color: #c0392b;
+    font-size: .9rem;
+    margin-top: 8px;
+    font-weight: 700;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-weight: 700;
+    &:after {
+      display: none;
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: 15px;
+  }
+
+  ion-grid {
+    height: 100%;
+  }
+
+
+  ion-button {
+    --background: var(--ion-color-primary);
+    --border-radius: 6px;
+    --box-shadow: none;
+    --padding-bottom: 20px;
+    --padding-top: 20px;
+    --padding-start: 0px;
+    --padding-end: 0px;
+    margin: 20px 0px 0px 0px;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem;
+    height: auto;
+  }
+
+  .sign-up-container {
+    margin: auto;
+    text-align: center;
+    margin-top: 30px;
+
+    p {
+      font-size: 14px;
+      color: var(--ion-color-primary-opacity-6);
+    }
+
+    a {
+      color: var(--ion-color-primary-opacity-8);
+    }
+  }
+
+  .forgot-password-container {
+    margin: auto;
+    margin-top: 10px;
+    text-align: right;
+
+
+    p {
+      font-size: 13px;
+    }
+
+    a {
+      color: #0D1B26;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  }
+}
+
+.btn-dismiss {
+  display: none;
+}
+
+@media (min-width: 751px) {
+  .skerlingo-padding {
+    padding: 10px 45px;
+  }
+  .btn-dismiss {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    --padding-bottom: 0;
+    --padding-top: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+    font-size: 1.2rem;
+    --border-width: 0;
+    color: #17172B;
+  }
+}
+
+.google-login-btn{
+  display: flex;
+  justify-content: center;
+}

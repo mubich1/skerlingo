@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="62" height="54" viewBox="0 0 62 54">
+  <g id="Delete" transform="translate(-1.657 0.829)">
+    <path id="Polygone_2" data-name="Polygone 2" d="M27.531,6.043a4,4,0,0,1,6.938,0L58.56,48.009A4,4,0,0,1,55.091,54H6.909A4,4,0,0,1,3.44,48.009Z" transform="translate(1.657 -0.829)" fill="#eaefff"/>
+    <text id="_" data-name="!" transform="translate(29.657 40.171)" fill="#3a5ed6" font-size="26" font-family="Montserrat-SemiBold, Montserrat" font-weight="600"><tspan x="0" y="0">!</tspan></text>
+  </g>
+</svg>

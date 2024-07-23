@@ -1,0 +1,474 @@
+ion-content {
+    --background: #F6F6F6;
+}
+ion-header {
+    border-bottom: 1px solid #E2DFDF;
+    ion-toolbar {
+        --background: #fff;
+    }
+    ion-back-button {
+        position: absolute;
+        left: 0;
+    }
+}
+ion-title {
+    padding-inline: initial;
+  }
+
+ion-slide {
+    width: 100%;
+}
+
+.toolbar-home {
+    position: relative;
+    display: block;
+    h4 {
+        margin: 0;
+    }
+    div {
+
+        position: absolute;
+        margin-left: initial;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+
+      img {
+        width: 25px;
+        margin-left: 12px;
+      }
+      ion-icon {
+        font-size: 26px;
+      }
+    }
+    h3 {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 17px;
+    }
+  }
+
+  .lettres-switch {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    .lettre {
+        margin: 0px 6px;
+        .kana {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 17px;
+            text-align: center;
+            letter-spacing: 0.1em;
+            color: #fff;
+            scale: 1.2;
+        }
+        .romaji {
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 700;
+            font-size: .9rem;
+            line-height: 25px;
+            text-align: center;
+            letter-spacing: -0.03em;
+            display: block;
+            margin-top: 5px;
+        }
+    }
+    .unchecked-lettre {
+        .kana {
+            background-color: transparent !important;
+            color: rgba(156, 156, 156, 0.6);
+            border: 1px solid #D8D8D8;
+            scale: 1;
+        }
+        .romaji {
+            display: none;
+        }
+    }
+  }
+
+  .btn-avis {
+    --background: transparent;
+    color: var(--ion-color-primary);
+    --border-color: var(--ion-color-primary);
+    --border-width: 1px;
+    --border-style: solid;
+    --border-radius: 7px;
+    --box-shadow: none;
+    --padding-bottom: 17px;
+    --padding-top: 17px;
+    --padding-start: 0;
+    --padding-end: 0;
+    font-weight: 600;
+    font-size: .95rem;
+    height: auto;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .lecon-exemples {
+    h3 {
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 800;
+        font-size: 1.2rem;
+        letter-spacing: -0.03em;
+        color: #000000;
+        margin: 0;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        text-align: left;
+    }
+    .audio-lettre {
+        margin-top: .9rem !important;
+        p {
+            font-size: .95rem !important;
+            font-weight: 600 !important;
+            span {
+                font-weight: 500 !important;
+            }
+        }
+    }
+  }
+
+
+
+  .lettre-infos {
+    width: 100%;
+    h2 {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 26px;
+        text-align: center;
+        letter-spacing: -0.03em;
+        color: #CECBCB;
+        margin: 15px 0px;
+    }
+
+    img {
+        position: absolute;
+        max-height: 200px;
+    }
+    .lettre-img-container {
+        padding: 5vh 0vh;
+        .img-relative {
+            position: relative;
+        }
+        .stars {
+            margin-bottom: 5vh;
+            margin-left: auto;
+            display: flex;
+            justify-content: center;
+            ion-icon {
+              margin-right: 5px;
+              color: #fff;
+              font-size: 1.2rem;
+            }
+          }
+    }
+    .luminosite {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 30px;
+        margin-top: 10px;
+        span {
+            font-family: "Manrope";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.8rem;
+            line-height: 21px;
+            letter-spacing: -0.02em;
+            display: block;
+            color: #FFFFFF;
+        }
+        ion-icon {
+            color: #FFFFFF;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        ion-range {
+            width: 50%;
+            --bar-background: #ffffff52;
+            --knob-background: #fff;
+            --bar-background-active: #fff;
+            --knob-size: 20px;
+        }
+    }
+    .ordre-trait {
+        h2 {
+            font-family: "Manrope";
+            font-style: normal;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.03em;
+            color: #000000;
+            margin: 0;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+            span {
+                font-weight: 500;
+            }
+        }
+        .traits {
+            display: flex;
+            align-items: center;
+            div {
+                display: flex;
+                align-items: center;
+                div {
+                    width: 3.5rem;
+                    height: 3.5rem;
+                    border: 1px solid #E2DFDF;
+                    border-radius: 6px;
+                    display: inline-block;
+                    img {
+                        position: relative;
+                        width: 50%;
+                        height: inherit;
+                        margin: auto;
+                        display: block;
+                    }
+                }
+                svg {
+                    margin: 0rem .7rem;
+                }
+            }
+        }
+        .audio-lettre {
+            border: 1px solid #E2DFDF;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+            p {
+                margin: 0;
+                font-family: 'Manrope';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1.5rem;
+                letter-spacing: -0.03em;
+                color: #000000;
+                span {
+                    color: #A8A8A8;
+                }
+            }
+            .play-lettre {
+                margin-left: auto;
+                width: 3rem;
+                height: 3rem;
+                border: 1px solid #DBDADA;
+                line-height: 3rem;
+                text-align: center;
+                border-radius: 50%;
+                position: relative;
+                ion-icon {
+                    font-size: 1.2rem;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        .description-lettre {
+            border: 1px solid #E2DFDF;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            padding-top: 4rem;
+            padding-bottom: 1.5rem;
+            margin-top: 4rem;
+            position: relative;
+            margin-bottom: 2rem;
+            .description-icon {
+                width: 4rem;
+                height: 4rem;
+                background: #FFFFFF;
+                border: 1px solid #E2DFDF;
+                border-radius: 50%;
+                position: absolute;
+                top: -2rem;
+                left: 2rem;
+                img{
+                    position: relative;
+                    width: 3rem;
+                    margin: auto;
+                    text-align: center;
+                    display: block;
+                    margin-top: -15px;
+                }
+            }
+            .description-content {
+
+                p {
+                    margin: 0;
+                }
+                font-family: 'Manrope';
+                font-style: normal;
+                font-weight: 500;
+                font-size: .9rem;
+                line-height: 25px;
+
+                display: flex;
+                align-items: center;
+                letter-spacing: -0.02em;
+
+                color: #060606;
+            }
+        }
+    }
+  }
+
+  .grid-lettre {
+    background: #FFFFFF;
+    box-shadow: 1px 2px 8px rgb(0 0 0 / 5%);
+    border-radius: 6px;
+    text-align: center;
+    .content-section{
+        padding: 22px 0px;
+        .kana {
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.3rem;
+            letter-spacing: -0.03em;
+            color: #000000;
+        }
+        .romaji {
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 1.2rem;
+            line-height: 22px;
+            display: block;
+            letter-spacing: -0.04em;
+            color: #B0B0B0;
+        }
+        .illustrations {
+            img {
+                position: absolute;
+                max-height: 35px;
+            }
+            .img-relative {
+                position: relative;
+            }
+        }
+    }
+    .sound-pronounciation{
+        font-size: 25px;
+        color: #B0B0B0;
+        &:hover{
+            cursor: pointer;
+            color: #000000;
+        }
+    }
+  }
+  h5 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  ion-row {
+    justify-content: space-between;
+    ion-col {
+        max-width: 20%;
+        min-width: 20%;
+    }
+  }
+  .grid-menu {
+    // border-top: 1px solid #EDEDED;
+    padding-top: 13px;
+    .menu-title {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 700;
+        font-size: .9rem;
+        line-height: 21px;
+        text-transform: uppercase;
+        color: #B0B0B0;
+    }
+    .menu-checkbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ion-label {
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 600;
+            font-size: .9rem;
+            display: flex;
+            align-items: center;
+            color: #000000;
+            line-height: 1;
+        }
+        ion-checkbox {
+            margin-inline-end: 15px;
+        }
+    }
+  }
+
+  .tab-buttons {
+      border-top: 1px solid #EDEDED;
+      padding-top: 13px;
+      display: flex;
+      .Hiragana-tab {
+        width: 50%;
+        padding-bottom: 15px;
+        border-bottom: 1px solid  #EDEDED;
+        .hiragana-text {
+            color: var(--tab-hiragana-text);
+            font-size: 17px;
+            font-weight: 700;
+            font-family: 'Manrope';
+            line-height: 23.22px;
+            &:hover{
+                cursor: pointer;
+              }
+        }
+    }
+
+    .Katakana-tab {
+        width: 50%;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #EDEDED;
+        .Katakana-text {
+            color: var(--tab-katakana-text);
+            font-size: 17px;
+            font-weight: 500;
+            font-family: 'Manrope';
+            line-height: 23.22px;
+            &:hover{
+                cursor: pointer;
+              }
+        }
+    }
+  }
+
+.custom-button {
+    width: 50%;
+}
+
+.combination-row{
+    justify-content: space-between;
+    width: 60%;
+    margin: auto;
+}
+.combination-col{
+    max-width: 30% !important;
+    min-width: 30% !important;
+}

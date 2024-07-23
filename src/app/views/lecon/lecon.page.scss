@@ -1,0 +1,926 @@
+
+ion-content {
+    --background: #fff;
+}
+ion-header {
+    border-bottom: 1px solid #E2DFDF;
+    ion-toolbar {
+        --background: #fff;
+    }
+    ion-back-button {
+        position: absolute;
+        left: 0;
+    }
+}
+
+ion-slide {
+    width: 100%;
+}
+
+.toolbar-home {
+    position: relative;
+    display: block;
+    h4 {
+        margin: 0;
+    }
+    div {
+        
+        position: absolute;
+        margin-left: initial;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+
+      img {    
+        width: 25px;
+        margin-left: 12px;
+      }
+      ion-icon {
+        font-size: 26px;
+      }
+    }
+  }
+
+  .lettres-switch {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-height: 70px;
+    .lettre {
+        margin: 0px 6px;
+        .kana {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 17px;
+            text-align: center;
+            letter-spacing: 0.1em;
+            color: #fff;
+            scale: 1.2;
+        }
+        .romaji {
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 700;
+            font-size: .9rem;
+            line-height: 25px;
+            text-align: center;
+            letter-spacing: -0.03em;
+            display: block;
+            margin-top: 5px;
+        }
+    }
+    .unchecked-lettre {
+        .kana {
+            background-color: transparent !important;
+            color: rgba(156, 156, 156, 0.6);
+            border: 1px solid #D8D8D8;
+            scale: 1;
+        }
+        .romaji {
+            display: none;
+        }
+    }
+  }
+
+  .btn-avis {
+    --background: transparent;
+    color: var(--ion-color-primary);
+    --border-color: var(--ion-color-primary);
+    --border-width: 1px;
+    --border-style: solid;
+    --border-radius: 7px;
+    --box-shadow: none;
+    --padding-bottom: 17px;
+    --padding-top: 17px;
+    --padding-start: 0;
+    --padding-end: 0;
+    font-weight: 600;
+    font-size: .95rem;
+    height: auto;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .lecon-exemples {
+    .exemples-header {
+        display: flex;
+        align-items: center;
+        div {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            h4 {
+                font-size: .9rem;
+                margin: 0;
+                font-weight: 700;
+            }
+            ion-toggle {
+                padding-right: 0 !important;
+            }
+        }
+    }
+    h3 {
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 800;
+        font-size: 1.2rem;
+        letter-spacing: -0.03em;
+        color: #000000;
+        margin: 0;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        text-align: left;
+    }
+    .audio-lettre {
+        margin-top: .9rem !important;
+        p {
+            font-size: .95rem !important;
+            font-weight: 600 !important;
+            text-align: left;
+            span {
+                font-weight: 500 !important;
+            }
+            .libelle {
+                display: block;
+                text-align: left;
+                margin-left: 10px;
+                font-size: .9rem;
+                margin-top: 2px;
+            }
+        }
+    }
+  }
+
+  .next-lesson {
+    --background: #F8830D !important;
+  }
+
+  
+  .quiz-matiere {
+    width: 100%;
+    margin: 35px;
+    h2 {
+      color: #171656;
+      font-size: 3.5rem;
+      font-family: "Montserrat";
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    h5 {
+      margin-top: 0px;
+      color: #dc4473;
+      font-family: "Montserrat";
+      font-weight: 500;
+      font-size: 1.7rem;
+      margin-bottom: 25px;
+    }
+    .quiz-header {
+      background: #FFFFFF;
+      box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.06);
+      border-radius: 10px;
+      padding: 10px 15px;
+    }
+    .quiz {
+      border-radius: 7px;
+      margin-bottom: 15px;
+      position: relative;
+      background-color: #fff;
+      box-shadow: 1px 2px 8px rgb(0 0 0 / 5%);
+
+
+      .ressource {
+        position: relative;
+        font-family: "Montserrat";
+        border-radius: 9px;
+        .questions_quiz {
+          padding: 15px 15px;
+          padding-top: 10px;
+          height: calc(100vh - 365px);
+        }
+        h2 {
+          font-family: 'Manrope';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 1rem;
+          line-height: 140%;
+          /* or 22px */
+
+          text-align: center;
+          letter-spacing: -0.02em;
+
+          color: #000000;
+        }
+        h3 {
+          font-family: 'Manrope';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1.7rem;
+          line-height: 130.2%;
+          /* or 36px */
+
+          text-align: center;
+          letter-spacing: 0.1em;
+
+          color: #000000;
+          text-align: center;
+        }
+        p {
+          font-size: 1.3rem;
+          margin-bottom: 4px;
+        }
+        .title-progress {
+          font-family: "Manrope";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 1rem;
+          line-height: 140%;
+          letter-spacing: -0.02em;
+          color: #BDBDBD;
+          margin-bottom: 5px;
+          display: block;
+        }
+        .progress-container {
+          display: flex;
+          align-items: center;
+          span {
+              
+              font-family: 'Manrope';
+              font-style: normal;
+              font-weight: 700;
+              font-size: .9rem;
+              line-height: 140%;
+              /* identical to box height, or 20px */
+
+              text-align: center;
+              letter-spacing: -0.02em;
+
+              color: #52B250;
+          }
+        }
+        .progress-correct {
+          span {
+              color: #52B350;
+          }
+          .progress-bar {
+                background-color: #52B350;
+            }
+        }
+        .progress-wrong {
+          span {
+              color: #E43535;
+          }
+          .progress-bar {
+                background-color: #E43535;
+            }
+        }
+        .progress {
+          background-color: #F1F1F1;
+          box-shadow: none;
+          border-radius: 20px;
+          height: 10px;
+          width: 100%;
+          margin: 5px 10px;
+          .progress-bar {
+            font-weight: 600;
+            line-height: 10px;
+            font-size: 11px;
+            border-radius: 20px;
+              height: 10px;
+          }
+        }
+        .progress_counter {
+          
+          .questions {    
+              font-family: 'Manrope';
+              font-style: normal;
+              font-weight: 700;
+              font-size: 1rem;
+              line-height: 124%;
+              /* or 21px */
+
+              letter-spacing: -0.02em;
+
+              color: #000000;
+              margin-top: 5px;
+              margin-bottom: 0;
+          }
+          .time {
+            font-size: 11px;
+            margin-bottom: 0px;
+            color: #e7e2ec;
+          }
+        }
+        img {
+          margin: auto;
+          margin-bottom: 25px;
+          text-align: center;
+          display: block;
+          position: relative;
+          border: 1px solid #ffffff45;
+        }
+        .icon_placeholder {
+          min-height: 170px;
+          background: #ffffff29;
+          width: 100%;
+          margin-bottom: 25px;
+        }
+        .reponses {
+          margin-top: 40px;
+          
+          ion-button {
+            --background: #1D1A18;
+            color: #fff;
+            --border-color: var(--ion-color-primary);
+            --border-width: 1px;
+            --border-style: solid;
+            --border-radius: 37px;
+            --box-shadow: none;
+            --padding-bottom: 17px;
+            --padding-top: 17px;
+            --padding-start: 0;
+            --padding-end: 0;
+            font-weight: 600;
+            font-size: 1.1rem;
+            height: auto;
+            margin-top: 20px;
+            width: 100%;
+            text-transform: uppercase;
+          }
+          span {
+              
+              position: relative;
+              display: block;
+              padding: 12px 0;
+              margin-bottom: 10px;
+              border: 1px solid #F0F0F0;
+              border-radius: 200px;
+              font-family: "Manrope";
+              font-style: normal;
+              font-weight: 500;
+              font-size: 1.1rem;
+              line-height: 130.2%;
+              text-align: center;
+              letter-spacing: 0.1em;
+              color: #000000;
+              img {
+                  position: absolute;
+                  width: 29px;
+                  left: 10px;
+                  top: 50%;
+                  transform: translateY(-50%);
+              }
+          }
+          span.wrong {
+            color: #E43535 !important;
+            font-weight: 600 !important;
+            background-color: #FFF2F2;
+          }
+          span.correct {
+            color: #52B250 !important;
+            font-weight: 600 !important;
+            background: #ECF8EA;
+          }
+          span:last-child {
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
+    
+    .quiz-result {
+      text-align: center;
+      img {
+        margin-bottom: 20px;
+      }
+
+      h5 {
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.5rem;
+        text-align: center;
+        letter-spacing: -0.02em;
+        color: #000000;
+        margin-bottom: 0px;
+      }
+      h6 {
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.1rem;
+        text-align: center;
+        letter-spacing: -0.02em;
+        color: #9E9E9E;
+        margin-top: 10px;
+      }
+      .your-score {
+        border: 1px solid #E4E4E4;
+        box-shadow: 0px 4px 13px rgb(0 0 0 / 4%);
+        border-radius: 14px;
+        margin: 25px 0;
+        padding: 35px;
+        h6 {
+          font-family: 'Manrope';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 1.3rem;
+          line-height: 140%;
+          text-align: center;
+          letter-spacing: -0.02em;
+          color: #000000;
+          margin-top: 0;
+        }
+        p {
+          font-family: 'Manrope';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1rem;
+          line-height: 144%;
+          text-align: center;
+          letter-spacing: -0.02em;
+          color: #9E9E9E;
+          span {
+            display: block;
+          }
+        }
+        .score-count {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          p {
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 2rem;
+            line-height: 140%;
+            text-align: center;
+            letter-spacing: -0.02em;
+            color: #151815;
+            span {
+              font-family: 'Manrope';
+              font-style: normal;
+              font-weight: 500;
+              font-size: 1rem;
+              line-height: 140%;
+              text-align: center;
+              letter-spacing: -0.02em;
+              color: #9E9E9E;
+              display: block;
+            }
+          }
+        } 
+        
+        button {
+          font-family: 'Manrope';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 1rem;
+          color: #F8830D;
+          background: transparent;
+          text-transform: uppercase;
+          text-align: center;
+          display: block;
+          margin: auto;
+        }
+      }
+      .quiz-result-actions {
+        ion-button {
+          --background: var(--ion-color-primary);
+          color: #fff;
+          --border-width: 1px;
+          --border-style: solid;
+          --border-radius: 6px;
+          --box-shadow: none;
+          --padding-bottom: 20px;
+          --padding-top: 20px;
+          --padding-start: 33px;
+          --padding-end: 33px;
+          font-weight: 600;
+          font-size: 1.2rem;
+          height: auto;
+          text-transform: uppercase;
+        }
+        .quiz-close {
+          --background: transparent;
+          color: #000;
+          --border-width: 0px;
+        }
+      }
+    }
+  }
+  
+  .quiz-header {
+    background: #FFFFFF;
+    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    padding: 10px 15px;
+  }
+  .quiz {
+    border-radius: 7px;
+    margin-bottom: 15px;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 1px 2px 8px rgb(0 0 0 / 5%);
+    width: 100%;
+
+
+    .ressource {
+      position: relative;
+      font-family: "Montserrat";
+      border-radius: 9px;
+      .questions_quiz {
+        padding: 15px 15px;
+        padding-top: 10px;
+        height: calc(100vh - 365px);
+      }
+      h2 {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 140%;
+        /* or 22px */
+
+        text-align: center;
+        letter-spacing: -0.02em;
+
+        color: #000000;
+      }
+      h3 {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.7rem;
+        line-height: 130.2%;
+        /* or 36px */
+
+        text-align: center;
+        letter-spacing: 0.1em;
+
+        color: #000000;
+        text-align: center;
+      }
+      p {
+        font-size: 1.3rem;
+        margin-bottom: 4px;
+      }
+      .title-progress {
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 140%;
+        letter-spacing: -0.02em;
+        color: #BDBDBD;
+        margin-bottom: 5px;
+        display: block;
+      }
+      .progress-container {
+        display: flex;
+        align-items: center;
+        span {
+            
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 700;
+            font-size: .9rem;
+            line-height: 140%;
+            /* identical to box height, or 20px */
+
+            text-align: center;
+            letter-spacing: -0.02em;
+
+            color: #52B250;
+        }
+      }
+      .progress-correct {
+        span {
+            color: #52B350;
+        }
+        .progress-bar {
+              background-color: #52B350;
+          }
+      }
+      .progress-wrong {
+        span {
+            color: #E43535;
+        }
+        .progress-bar {
+              background-color: #E43535;
+          }
+      }
+      .progress {
+        background-color: #F1F1F1;
+        box-shadow: none;
+        border-radius: 20px;
+        height: 10px;
+        width: 100%;
+        margin: 5px 10px;
+        .progress-bar {
+          font-weight: 600;
+          line-height: 10px;
+          font-size: 11px;
+          border-radius: 20px;
+            height: 10px;
+        }
+      }
+      .progress_counter {
+        
+        .questions {    
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 1rem;
+            line-height: 124%;
+            /* or 21px */
+
+            letter-spacing: -0.02em;
+
+            color: #000000;
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+        .time {
+          font-size: 11px;
+          margin-bottom: 0px;
+          color: #e7e2ec;
+        }
+      }
+      img {
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+        display: block;
+        position: relative;
+        border: 1px solid #ffffff45;
+      }
+      .icon_placeholder {
+        min-height: 170px;
+        background: #ffffff29;
+        width: 100%;
+        margin-bottom: 25px;
+      }
+      .reponses {
+        margin-top: 40px;
+        
+        ion-button {
+          --background: #1D1A18;
+          color: #fff;
+          --border-color: var(--ion-color-primary);
+          --border-width: 1px;
+          --border-style: solid;
+          --border-radius: 37px;
+          --box-shadow: none;
+          --padding-bottom: 17px;
+          --padding-top: 17px;
+          --padding-start: 0;
+          --padding-end: 0;
+          font-weight: 600;
+          font-size: 1.1rem;
+          height: auto;
+          margin-top: 20px;
+          width: 100%;
+          text-transform: uppercase;
+        }
+        span {
+            
+            position: relative;
+            display: block;
+            padding: 12px 0;
+            margin-bottom: 10px;
+            border: 1px solid #F0F0F0;
+            border-radius: 200px;
+            font-family: "Manrope";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.1rem;
+            line-height: 130.2%;
+            text-align: center;
+            letter-spacing: 0.1em;
+            color: #000000;
+            img {
+                position: absolute;
+                width: 29px;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        span.wrong {
+          color: #E43535 !important;
+          font-weight: 600 !important;
+          background-color: #FFF2F2;
+        }
+        span.correct {
+          color: #52B250 !important;
+          font-weight: 600 !important;
+          background: #ECF8EA;
+        }
+        span:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+
+
+  .lettre-infos {
+    width: 100%;
+    h2 {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 26px;
+        text-align: center;
+        letter-spacing: -0.03em;
+        color: #000;
+        margin: 15px 0px;
+    }
+    
+    img {
+        position: absolute;
+        max-height: 200px;
+    }
+    .lettre-img-container {
+        padding: 5vh 0vh;
+        .img-relative {
+            position: relative;
+        }
+        .stars {
+            opacity: 0;
+            margin-bottom: 5vh;
+            margin-left: auto;
+            display: flex;
+            justify-content: center;
+            ion-icon {
+              margin-right: 5px;
+              color: #fff;
+              font-size: 1.2rem;
+            }
+          }
+    }
+    .luminosite {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 30px;
+        margin-top: 10px;
+        span {
+            font-family: "Manrope";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.8rem;
+            line-height: 21px;
+            letter-spacing: -0.02em;
+            display: block;
+            color: #FFFFFF;
+        }
+        ion-icon {
+            color: #FFFFFF;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        ion-range {
+            width: 50%;
+            --bar-background: #ffffff52;
+            --knob-background: #fff;
+            --bar-background-active: #fff;
+            --knob-size: 20px;
+        }
+    }
+    .ordre-trait {
+        h2 {
+            font-family: "Manrope";
+            font-style: normal;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.03em;
+            color: #000000;
+            margin: 0;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+            span {
+                font-weight: 500;
+            }
+        }
+        .traits {
+            display: flex;
+            align-items: center;
+            div {
+                display: flex;
+                align-items: center;
+                div {
+                    width: 3.5rem;
+                    height: 3.5rem;
+                    border: 1px solid #E2DFDF;
+                    border-radius: 6px;
+                    display: inline-block;
+                    img {
+                        position: relative;
+                        width: 50%;
+                        height: inherit;
+                        margin: auto;
+                        display: block;
+                    }
+                }
+                svg {
+                    margin: 0rem .7rem;
+                }
+            }
+        }
+        .audio-lettre {
+            border: 1px solid #E2DFDF;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+            p {
+                margin: 0;
+                font-family: 'Manrope';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1.5rem;
+                letter-spacing: -0.03em;
+                color: #000000;
+                span {
+                    color: #A8A8A8;
+                }
+            }
+            .play-lettre {
+                margin-left: auto;
+                width: 3rem;
+                height: 3rem;
+                border: 1px solid #DBDADA;
+                line-height: 3rem;
+                text-align: center;
+                border-radius: 50%;
+                position: relative;
+                ion-icon {
+                    font-size: 1.2rem;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        .description-lettre {
+            border: 1px solid #E2DFDF;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            padding-top: 4rem;
+            padding-bottom: 1.5rem;
+            margin-top: 4rem;
+            position: relative;
+            margin-bottom: 2rem;
+            .description-icon {
+                width: 4rem;
+                height: 4rem;
+                background: #FFFFFF;
+                border: 1px solid #E2DFDF;
+                border-radius: 50%;
+                position: absolute;
+                top: -2rem;
+                left: 2rem;
+                img{
+                    position: relative;
+                    width: 3rem;
+                    margin: auto;
+                    text-align: center;
+                    display: block;
+                    margin-top: -15px;
+                }
+            }
+            .description-content {
+
+                font-family: 'Manrope';
+                font-style: normal;
+                font-weight: 500;
+                font-size: .9rem;
+                line-height: 25px;
+
+                display: block;
+                text-align: left;
+                letter-spacing: -0.02em;
+                
+                color: #060606;
+                
+                p {
+                  margin: 0;
+              }
+            }
+        }
+    }
+  }

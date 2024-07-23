@@ -1,0 +1,73 @@
+<!-- <ion-header mode="md">
+  <ion-toolbar>
+    <ion-title>
+      <div class="toolbar-candidat">
+        <h4>Progress</h4>
+        <div>
+        </div>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<ion-header mode="md">
+  <ion-toolbar>
+    <ion-title>
+      <div class="toolbar-home">
+        <!-- <ion-back-button></ion-back-button> -->
+        <h3>Progress</h3>
+        <div>
+          <span *ngIf="false">
+          </span>
+        </div>
+      </div>
+      <div class="tab-buttons">
+        <div class="Hiragana-tab" id="Hiragana-tab">
+          <span class="hiragana-text" (click)="click_segment('hiragana')">Hiragana</span>
+        </div>
+        <div class="Katakana-tab" id="Katakana-tab">
+          <span class="Katakana-text" (click)="click_segment('katakana')">Katakana</span>
+        </div>
+      </div>
+      <div class="grid-menu">
+        <!-- <span class="menu-title">SHOW WITH</span> -->
+        <div class="menu-checkbox">
+          <ion-item lines="none">
+            <!-- <ion-label>romaji</ion-label> -->
+            <!-- <ion-checkbox slot="start"></ion-checkbox> -->
+          </ion-item>
+        </div>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollY]="webApp ? false : true" [scrollEvents]="true" (ionScroll)='onContentScroll($event)'>
+  <div>
+
+    <!-- <ion-segment [scrollable]="!webApp" mode="md" [(ngModel)]="segmentModel">
+      <ion-segment-button (click)="click_segment('hiragana')" [value]="'hiragana'" layout="icon-start">
+        <ion-label [id]="'hiragana'">Hiragana</ion-label>
+      </ion-segment-button>
+      <ion-segment-button (click)="click_segment('katakana')" [value]="'katakana'" layout="icon-start">
+        <ion-label [id]="'katakana'">Katakana</ion-label>
+      </ion-segment-button>
+    </ion-segment> -->
+
+    <div class="skerlingo-padding">
+      <ion-row *ngFor="let lecon of data?.lecons; let i = index">
+        <ion-col *ngFor="let lettre of lecon.lettres;">
+          <div class="grid-lettre">
+            <span class="kana">{{ lettre.kana }}</span>
+
+            <circle-progress [titleFontWeight]="600" [unitsFontWeight]="600" [titleFontSize]="50" [unitsFontSize]="50"
+              [percent]="lettre.pct" [radius]="100" [showSubtitle]="false" [outerStrokeWidth]="8" [responsive]="true"
+              [innerStrokeWidth]="4" [outerStrokeColor]="lettre.color" [innerStrokeColor]="lettre.color"
+              [animation]="true" [titleColor]="lettre.color" [unitsColor]="lettre.color" [animationDuration]="900">
+            </circle-progress>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+
+  </div>
+</ion-content>

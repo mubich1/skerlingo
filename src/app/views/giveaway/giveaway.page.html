@@ -1,0 +1,37 @@
+<ion-content>
+  <div *ngIf="giveaway" class="header-picture header-picture-giveaway visibility-header-picture"
+    [style.background-image]="'url('+ giveaway.image_url +')'">
+    <div class="menu-toggle">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </div>
+    <countdown [config]="prettyConfig"></countdown>
+  </div>
+  <div *ngIf="giveaway" class="giveaway-page">
+    <h2>{{ giveaway.label }}</h2>
+    <div class="statut" *ngIf="giveaway.statut">
+      <span [style.background-color]="'rgb('+ giveaway.statut.color +')'">
+        {{ giveaway.statut.label }}
+      </span>
+    </div>
+    <div [innerHTML]="giveaway.description"></div>
+    <ion-row *ngIf="giveaway && giveaway.participate" class="ion-align-items-center btns">
+      <ion-col>
+        <ion-button *ngIf="!loggedIn" (click)="page_login(giveaway)" expand="block">
+          <ion-icon name="log-in-outline"></ion-icon> Se connecter pour participer
+        </ion-button>
+        <ion-button *ngIf="loggedIn" (click)="participer(giveaway)" expand="block">
+          <ion-icon name="thumbs-up-outline"></ion-icon> participer maintenant
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="giveaway && !giveaway.participate" class="ion-align-items-center congratulation_block">
+      <ion-col size="3">
+        <img src="{{ giveaway.participate_icon }}" />
+      </ion-col>
+      <ion-col>
+        <p>{{ giveaway.participate_msg }}</p>
+      </ion-col>
+    </ion-row>
+
+  </div>
+</ion-content>

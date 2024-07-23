@@ -1,0 +1,10 @@
+<ion-item lines="none" button detail="false" class="header" (click)="toggle()">
+  <ion-icon slot="end" [name]="expanded ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
+  <ion-label mode="md" *ngIf="title" class="ion-text-wrap">{{ title }}</ion-label>
+
+  <ion-skeleton-text *ngIf="!title" animated style="height: 7px !important; width: 90%;">
+  </ion-skeleton-text>
+</ion-item>
+<div class="content ion-padding-start ion-padding-end ion-padding-bottom">
+  <ng-content></ng-content>
+</div>

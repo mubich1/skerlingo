@@ -1,0 +1,27 @@
+<ion-content>
+
+  <ion-grid class="container_grid">
+    <ion-row class="container_row">
+      <div *ngIf="data" class="update-page">
+
+        <ion-row class="ion-align-items-center header-close-update">
+          <ion-col (click)="dismiss()" class="ion-text-right">
+            <ion-icon name="remove-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+
+
+        <div class="infos-update">
+          <img src="{{ data?.icon }}" alt="">
+          <h1>{{data?.title}}</h1>
+          <p>{{data?.description}}</p>
+          <ion-button href="{{ data?.link.link }}" expand="block">
+            {{ data?.link.text }}
+          </ion-button>
+        </div>
+      </div>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

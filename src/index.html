@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Ionic App</title>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoadCallback" async></script>
+
+  <base href="/" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="http://fonts.cdnfonts.com/css/sofia-pro" rel="stylesheet">
+  <meta name="color-scheme" content="light dark" />
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <script type='text/javascript'>
+    window.smartlook||(function(d) {
+      var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+      var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+      c.charset='utf-8';c.src='https://web-sdk.smartlook.com/recorder.js';h.appendChild(c);
+      })(document);
+      smartlook('init', 'a958bc60d2e41a834071f6a9e07f4d3cd584dbd1', { region: 'eu' });
+  </script>
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+
+</html>

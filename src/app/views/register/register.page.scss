@@ -1,0 +1,423 @@
+.ion-content-white {
+  --background: #fff;
+}
+ion-toolbar {
+  --background: #fff;
+}
+ion-content.register_page {
+  --padding-start: 15px;
+  --padding-end: 15px;
+  h1 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #0C4872;
+    font-weight: 600;
+    margin-top: 0;
+    span {
+      display: block;
+      color: #0D1B26;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-top: 5px;
+      margin-bottom: 25px;
+    }
+  }
+  h2 {
+    display: none;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: #0D1B26;
+    margin-bottom: 20px;
+  }
+  .item-interactive-disabled {
+      ion-label {
+          opacity: 1 !important;
+      }
+  }
+  .cgu-cta {
+    display: flex;
+    align-items: center;
+    ion-item {
+      --inner-padding-start: 0px;
+      --padding-start: 0;
+      --padding-end: 0;
+      --inner-padding-end: 0;
+      --min-height: 0px;
+      --ripple-color: transparent;
+      --background-hover: none;
+      --background: transparent;
+      z-index: 0;
+      
+      ion-checkbox {
+        --border-radius: 5px;
+        margin: 0;
+      }
+      ion-label {
+        font-size: 0.9rem;
+        color: #0D1B26;
+        font-weight: 600;
+        margin-left: 10px;
+      }
+    }
+    span {
+      font-size: 0.9rem;
+      color: #1891E7;
+      font-weight: 700;
+      display: inline-block;
+      margin-left: 6px;
+      margin-top: 1px;
+      cursor: pointer;
+    }
+  }
+
+  
+.type-compte {
+  display: flex;
+  align-items: center;
+  border: 1.3px solid #E5E5E5;
+  border-radius: 13px;
+  padding: 20px 20px 20px 20px;
+  margin-bottom: 15px;
+  position: relative;
+  min-height: 121px;
+
+  div:last-child {
+      margin-left: 20px;
+  }
+  img, svg {
+      width: 70px;
+      max-width: initial !important;
+  }
+  h4 {
+      margin-top: 0;
+      margin-bottom: 0px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0D1B26;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+  }
+  p {
+    margin: 0;
+    margin-top: 5px;
+    color: #58656F;
+    font-family: "Open Sans";
+    font-size: 0.9rem;
+    line-height: 20px;
+  }
+}
+  
+@media (min-width: 361px) {
+  .type-compte {
+      margin-bottom: 15px;
+  
+      div:last-child {
+          margin-left: 20px;
+      }
+      h4 {
+      }
+      p {
+      }
+  }
+}
+
+.type-compte.active {
+  border-color: #0C4872;
+  background-color: #F0F8FA;
+  h4 {
+    color: #0C4872;
+  }
+  p {
+    color: #0C4872;
+  }
+  svg {
+    path, circle {
+      stroke: #0C4872;
+    }
+    #costume {
+      fill: #53C4C4;
+    }
+  }
+}
+
+  p {
+    margin: 0;
+  }
+
+  
+  .password-criteres {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0D1B26;
+    margin-top: 15px;
+    span {
+      display: block;
+      color: #767070;
+      font-size: 0.85rem;
+      font-family: "Open Sans";
+      font-weight: 400;
+      margin-top: 5px;
+      line-height: 21px;
+    }
+  }
+
+  .input-error {
+    border-color: #F0304D !important;
+    --border-color: #F0304D !important;
+  }
+
+  .skerlingo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    form {
+      width: 100%;
+    }
+    
+    ion-button {
+      --background: var(--ion-color-primary);
+      --border-radius: 6px;
+      --box-shadow: none;
+      --padding-bottom: 20px;
+      --padding-top: 20px;
+      --padding-start: 0px;
+      --padding-end: 0px;
+      margin: 20px 0px 0px 0px;
+      width: 100%;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.85rem;
+      height: auto;
+    }
+    ion-button.btn-social {
+      font-size: .85rem !important;
+    }
+    .cta-recruteur {
+      display: flex;
+      height: calc(100vh - 122px);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      img {
+          width: 140px;
+          height: 146px;
+          margin-bottom: 8px;
+      }
+      h5 {
+          font-weight: 700;
+          color: #0D1B26;
+          font-size: 1.7rem;
+      }
+      p {
+          font-size: 1rem;
+          max-width: 300px;
+          font-family: "Open Sans";
+          color: #676262;
+          margin: auto;
+          line-height: 24px;
+          margin-top: 0px;
+          margin-bottom: 20px;
+          padding: 0;
+      }
+      ion-button {
+        ion-icon {
+          font-size: 27px;
+          position: absolute;
+          left: 25px;
+        }
+        .span-appelez {
+
+        }
+        .span-num {
+          display: none;
+        }
+      }
+      ion-button:last-child {
+        --background: #53C4C4;
+      }
+      .separate_ou {
+        display: none;
+      }
+    }
+
+    .p-100 {
+      padding-bottom: 100px;
+    }
+
+  }
+}
+.btn-dismiss {
+  display: none;
+}
+
+.btn-sinscrire {
+  margin-top: auto !important;
+  width: calc(100%);
+  position: relative;
+  bottom: 0px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  ion-button {
+      --background: var(--ion-color-primary);
+      color : #fff;
+    --border-radius: 0px;
+    --box-shadow: none;
+    --padding-bottom: 17px;
+    --padding-top: 17px;
+    --padding-start: 0px;
+    --padding-end: 0px;
+    margin: 0px 0 0 0;
+    width: 100%;
+    font-weight: 700;
+    font-size: 1rem;
+    height: auto;
+    text-transform: uppercase;
+    ion-icon {
+      margin-right: 20px;
+      font-size: 27px;
+    }
+  }
+}
+.btn-sinscrire.btn-web {
+}
+
+@media (max-width: 750px) {
+  .step-prev {
+    display: none;
+  }
+}
+
+@media (min-width: 751px) {
+  
+  .separate_ou {
+    display: block !important;
+  }
+  .cgu-cta { 
+    margin-top: 20px;
+  }
+  .btn-sinscrire.btn-mobile {
+    display: none !important;
+  }
+  .btn-sinscrire.btn-web {
+    display: block !important;
+    position: relative;
+  }
+  ion-title {
+    font-weight: 700;
+  }
+  h1 {
+    display: none;
+  }
+  h2 {
+    display: block !important;
+  }
+  form {
+    width: 80% !important;
+    padding: 15px 0px 35px 0;
+  }
+  .type-compte {
+    display: flex;
+    align-items: center;
+    border: 1.3px solid #E5E5E5;
+    border-radius: 13px;
+    padding: 20px 20px 20px 20px;
+    margin-bottom: 15px;
+    position: relative;
+    min-height: 121px;
+    cursor: pointer;
+  
+    div:last-child {
+        margin-left: 20px;
+    }
+    img, svg {
+        width: 70px;
+        max-width: initial !important;
+    }
+    h4 {
+        font-size: .85rem !important;
+    }
+    p {
+      font-size: 0.75rem !important;
+      line-height: 20px;
+    }
+  }
+  .btn-dismiss {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    --padding-bottom: 0;
+    --padding-top: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+    font-size: 1.2rem;
+    --border-width: 0;
+    color: #17172B;
+  }
+  .p-100 {
+    padding-bottom: 0px !important;
+  }
+  
+  .cta-recruteur {
+    height: auto !important;
+    img {
+        width: 140px;
+        height: 146px;
+        margin-bottom: 8px;
+    }
+    h5 {
+        font-size: 1.3rem !important;
+    }
+    p {
+        font-size: .85rem !important;
+        span {
+          display: none;
+        }
+    }
+    ion-button {
+      margin-top: 0px !important;
+      --background: transparent !important;
+      --color : #0D1B26;
+      ion-icon {
+        display: none !important;
+      }
+      .span-appelez {
+        display: none !important;
+      }
+      .span-num {
+        display: block !important;
+      }
+    }
+    .ion-button-tel {
+      --padding-top: 10px !important;
+      --padding-bottom: 5px !important;
+      font-size: 1.3rem !important;
+      font-weight: 600 !important;
+    }
+    ion-button:last-child {
+      --background: var(--ion-color-primary) !important;
+      --color : #fff;
+      ion-icon {
+        display: block !important;
+      }
+    }
+  }
+  
+  .success-data {
+    height: auto !important;
+    padding: 30px 0 !important;
+    h5 {
+        font-size: 1.2rem !important;
+    }
+    p {
+        font-size: .9rem !important;
+    }
+  }
+}

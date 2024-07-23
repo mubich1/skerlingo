@@ -1,0 +1,61 @@
+.reservation-page {
+  min-height: 100vh;
+  padding: 15px;
+
+  .prestations {
+    padding: 0px 20px;
+
+    ion-row.btns {
+      ion-col:last-child {
+        margin: auto;
+        text-align: center;
+      }
+
+    }
+
+    .prestation {
+      .img {
+        border-radius: 20px;
+        width: 100%;
+        background-position: center center;
+        height: 70px;
+        background-size: cover;
+      }
+
+      p {
+        line-height: 1.3;
+        margin: 0;
+        font-size: 12px;
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+
+      span {
+        font-size: 12px;
+      }
+
+      ion-icon {
+        font-size: 25px;
+      }
+    }
+  }
+
+  .membres {
+    ion-item {
+
+      ion-label {
+        font-size: 13px;
+      }
+
+      ion-avatar {
+        height: 30px;
+        width: 30px;
+        margin-right: 10px;
+      }
+    }
+  }
+}

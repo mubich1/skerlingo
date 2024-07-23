@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/home"></ion-back-button>
+    </ion-buttons>
+    <span class="grid" (click)="page_grid()"><img src="assets/icon/menu-home.svg" alt=""></span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="services-container skerlingo-padding">
+    <div *ngIf="data" class="categorie-header">
+      <img src="{{ data?.image_url }}" alt="">
+      <h3>{{ data?.title }}</h3>
+      <p>{{ data?.description }}</p>
+    </div>
+
+    <div class="section-card" (click)="page_prestation()">
+      <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+      <div>
+        <img src="assets/apprend.svg" alt="">
+      </div>
+      <div>
+        <h4>{{ dataText.apprend[currentLang] }}</h4>
+        <p>{{ dataText.apprend_desc[currentLang] }} {{ categorie }} !</p>
+      </div>
+    </div>
+
+    <div class="section-card" (click)="page_quiz()">
+      <img src="assets/icon/arrow-right.svg" class="arrow-btn" alt="">
+      <div>
+        <img src="assets/quiz.svg" alt="">
+      </div>
+      <div>
+        <h4>{{ dataText.quiz[currentLang] }}</h4>
+        <p>{{ dataText.quiz_desc[currentLang] }}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

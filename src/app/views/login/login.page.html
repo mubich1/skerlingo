@@ -1,0 +1,78 @@
+<ion-header mode="md">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Log in</ion-title>
+        <ion-button mode="md" class="btn-dismiss" (click)="dismissForm()" fill="outline">
+            <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-content-white">
+    <div class="skerlingo-padding">
+        <form [formGroup]="loginForm">
+            <ion-list class="ion-list-form">
+                <ion-item lines="none">
+                    <ion-label mode="md" position="floating">E-mail</ion-label>
+                    <ion-input formControlName="email" type="email">
+                    </ion-input>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-label mode="md" position="floating">Password</ion-label>
+                    <ion-input formControlName="password" [type]="showPwd ? 'text' : 'password'">
+                    </ion-input>
+                    <div class="show-pwd">
+                        <ion-icon [name]=" pwdIcon" (click)="togglePwd()"></ion-icon>
+                    </div>
+                </ion-item>
+                <p *ngIf="message" class="message_danger">{{ message }}</p>
+            </ion-list>
+            <div class="forgot-password-container">
+                <p><a href="javascript:void(0)" (click)="page_password()">Forgot password ?</a></p>
+            </div>
+            <ion-button mode="md" (click)="onSignIn()" class="btn-default">
+                Log in
+            </ion-button>
+
+            <div class="separate_ou">
+                <div></div>
+                <span>OR</span>
+            </div>
+
+            <ion-row class="signin ion-text-right signin-social">
+                <ion-col class="ion-no-padding">
+                    <ion-button mode="md" (click)="page_register()" fill="outline" class="btn-default btn-social"
+                        hidden>
+                        <img src="assets/icon/form_logo.svg" />
+                        S’inscrire avec le formulaire
+                    </ion-button>
+                    <!-- <ion-button style="opacity: .2;" mode="md" (click)="login_fb()" fill="outline"
+                        class="btn-default btn-social btn-facebook">
+                        <img src="assets/icon/facebook_logo.svg" />
+                        Continue with Facebook
+                    </ion-button> -->
+                    <!-- <ion-button style="opacity: .2;" mode="md" (click)="login_gp()" fill="outline"
+                        class="btn-default btn-social btn-google">
+                        <img src="assets/icon/google_logo.svg" />
+                        Continue with Gmail
+                    </ion-button> -->
+                    <div class="google-login-btn">
+                        <div id="googleButtonContainer">
+                            <div id="googleBtn"></div>
+                        </div>
+                    </div>
+
+                    <!-- <ion-button *ngIf="platform.is('ios')" mode="md" (click)="login_apple()" fill="outline"
+                        class="btn-default btn-social btn-apple">
+                        <img src="assets/icon/apple.svg" />
+                        Continuer avec Apple
+                    </ion-button> -->
+                </ion-col>
+            </ion-row>
+            <div class="sign-up-container" hidden>
+                <p>Vous n'avez pas de compte ? <a href="javascript:void(0)" (click)="page_register()">S'inscrire</a></p>
+            </div>
+        </form>
+    </div>
+</ion-content>

@@ -1,0 +1,148 @@
+<ion-header mode="md">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="etape-details">
+    <div class="info">
+      <img src="assets/icon/details-prix.svg" alt="">
+      <p>Montant</p>
+      <span *ngIf="data">{{ data?.etape.prix }}</span>
+      <ion-skeleton-text *ngIf="!data" animated style="height: 20px; border-radius: 5px; width: 70px; margin: auto;">
+      </ion-skeleton-text>
+    </div>
+    <div class="info">
+      <img src="assets/icon/details-etat.svg" alt="">
+      <p>Etat</p>
+      <span *ngIf="data" [style.color]="'rgb('+ data?.etape.statut_color +')'"
+        [style.background-color]="'rgb('+ data?.etape.statut_color +',.2)'">{{ data?.etape.statut_label }}</span>
+      <ion-skeleton-text *ngIf="!data" animated style="height: 20px; border-radius: 5px; width: 80px; margin: auto;">
+      </ion-skeleton-text>
+    </div>
+    <div class="info">
+      <img src="assets/icon/details-date.svg" alt="">
+      <p>Date</p>
+      <span *ngIf="data" class="date">{{ data?.etape.date }}</span>
+      <ion-skeleton-text *ngIf="!data" animated style="height: 7px; border-radius: 0; width: 80px; margin: auto;">
+      </ion-skeleton-text>
+      <ion-skeleton-text *ngIf="!data" animated style="height: 7px; width: 50px; margin: auto; margin-top: 4px;">
+      </ion-skeleton-text>
+    </div>
+  </div>
+
+
+  <ion-segment *ngIf="demande_service" scrollable value="messages" [(ngModel)]="segmentModel">
+    <ion-segment-button value="messages" layout="icon-start">
+      <ion-label>Messagerie</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="details" layout="icon-start">
+      <ion-label>Détails de la demande</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <h3 *ngIf="!demande_service">Messagerie</h3>
+
+  <div *ngIf="segmentModel === 'messages'" class="messages">
+
+    <div *ngIf="!data">
+      <div class="message-item" *ngFor="let number of [1, 2, 3]">
+        <div>
+          <div>
+            <div class="user-message">
+              <ion-skeleton-text animated style="border-radius: 50%; width: 50px; height: 50px; margin-right: 10px;">
+              </ion-skeleton-text>
+              <div class="information">
+                <ion-skeleton-text animated style="height: 10px !important; border-radius: 0; width: 110px;">
+                </ion-skeleton-text>
+                <ion-skeleton-text animated style="height: 8px !important; border-radius: 0; width: 90px;">
+                </ion-skeleton-text>
+              </div>
+            </div>
+            <ion-skeleton-text animated
+              style="height: 11px !important; border-radius: 0; width: 100%; margin-bottom: 11px; margin-top: 10px;">
+            </ion-skeleton-text>
+            <ion-skeleton-text animated
+              style="height: 11px !important; border-radius: 0; width: 70%; margin-bottom: 11px; margin-top: 10px;">
+            </ion-skeleton-text>
+            <ion-skeleton-text animated
+              style="height: 11px !important; border-radius: 0; width: 50%; margin-bottom: 11px; margin-top: 10px;">
+            </ion-skeleton-text>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="message-item" *ngIf="data?.etape">
+        <div>
+          <div class="user-message">
+            <img class="img" src="{{ data.etape.client_image }}" alt="">
+            <div class="information">
+              <span>{{ data.etape.client_label }}</span>
+              <span>{{ data.etape.date_ago | amLocale:'fr' | amTimeAgo }}</span>
+            </div>
+          </div>
+          <p>{{ data.etape.message }}</p>
+        </div>
+      </div>
+      <div class="message-item" *ngFor="let message of data?.messages">
+        <div>
+          <div class="user-message">
+            <img class="img" src="{{ message.from_image }}" alt="">
+            <div class="information">
+              <span>{{ message.from_label }}</span>
+              <span>{{ message.date_ago | amLocale:'fr' | amTimeAgo }}</span>
+            </div>
+          </div>
+          <p>{{ message.message }}</p>
+          <span class="piece-jointe" *ngFor="let file of message.files_path; let i = index"
+            (click)="downloadFile(file)">
+            <img src="assets/icon/pdf.svg" alt="">
+            <div>Pièce jointe {{ i + 1}}</div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="message-form">
+    <div class="files">
+      <div class="file" *ngFor="let file of files; let i = index">
+        <img src="assets/icon/pdf.svg" alt="">
+        <div>
+          <span>{{ file.name }}</span>
+          <span>{{ file.size }} KB</span>
+        </div>
+        <img class="delete-file" (click)="deleteFile(i)" src="assets/icon/delete-file.svg" alt="">
+      </div>
+    </div>
+    <div class="zone">
+      <img src="assets/icon/message-pj.svg" (click)="chooseFile()" class="pj" alt="">
+      <ion-input type="text" [(ngModel)]="message" placeholder="Ecriver un message"></ion-input>
+      <img src="assets/icon/message-send.svg" (click)="sendMessage()" class="send" alt="">
+    </div>
+  </div>
+
+  <div *ngIf="segmentModel === 'details'">
+    <div class="informations">
+      <h4 *ngIf="data?.reponses.length > 0">Informations</h4>
+      <div class="information-item" *ngFor="let reponse of data?.reponses">
+        <div>{{ reponse.question_label }}</div>
+        <div>{{ reponse.reponse_label }}</div>
+      </div>
+    </div>
+    <div class="services">
+      <h4 *ngIf="data?.services_optionnel.length > 0">SERVICES OPTIONNELS</h4>
+      <div class="service-item" *ngFor="let service of data?.services_optionnel">
+        <div>{{ service.service_label }}</div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

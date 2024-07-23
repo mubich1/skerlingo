@@ -1,0 +1,83 @@
+<ion-header mode="md">
+  <ion-toolbar>
+    <ion-title>
+      <div class="toolbar-home">
+        <ion-back-button></ion-back-button>
+        <h3>Chart</h3>
+        <div>
+          <span *ngIf="false">
+          </span>
+        </div>
+      </div>
+      <div class="tab-buttons">
+        <div class="Hiragana-tab" id="Hiragana-tab">
+          <span class="hiragana-text" (click)="selectedTab('Hiragana',true)">Hiragana</span>
+        </div>
+        <div class="Katakana-tab" id="Katakana-tab">
+          <span class="Katakana-text" (click)="selectedTab('Katakana',true)">Katakana</span>
+        </div>
+      </div>
+      <div class="grid-menu">
+        <span class="menu-title">SHOW WITH</span>
+        <div class="menu-checkbox">
+          <ion-item lines="none">
+            <ion-label>romaji</ion-label>
+            <ion-checkbox slot="start" [(ngModel)]="romaji"></ion-checkbox>
+          </ion-item>
+        </div>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div>
+
+    <ion-grid [fixed]="true">
+      <h5>Basics</h5>
+      <ion-row *ngFor="let lecon of data?.lecons; let i = index">
+        <ion-col *ngFor="let lettre of lecon.lettres;">
+          <div [ngStyle]="illustrations ? {'background-color': lettre.color}: {}" class="grid-lettre">
+            <div class="content-section">
+              <span *ngIf="!illustrations" class="kana">{{ lettre.kana }}</span>
+              <span [ngStyle]="illustrations ? {'color': '#fff'}: {}" *ngIf="romaji" class="romaji">{{ lettre.romaji
+                }}</span>
+            </div>
+            <!-- <ion-icon class="volume sound-pronounciation" (click)="pronunciation(lettre.kana)" name="volume-high"></ion-icon> -->
+            <ion-icon *ngIf="sounds.includes(lettre.romaji)" class="volume sound-pronounciation"  (click)="playAudio(lettre.romaji)" name="volume-high"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+      <h5>Modified</h5>
+      <ion-row>
+        <ion-col *ngFor="let lettre of data?.variants;">
+          <div class="grid-lettre">
+            <div class="content-section">
+              <span class="kana">{{ lettre.kana }}</span>
+              <span *ngIf="romaji" class="romaji">{{ lettre.romaji
+                }}</span>
+            </div>
+            <!-- <ion-icon class="volume sound-pronounciation" (click)="pronunciation (lettre.kana)" name="volume-high"></ion-icon> -->
+            <ion-icon *ngIf="sounds.includes(lettre.romaji)" class="volume sound-pronounciation"  (click)="playAudio(lettre.romaji)" name="volume-high"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+      <h5>Combination</h5>
+      <ion-row class="combination-row">
+        <ion-col class="combination-col" *ngFor="let lettre of data?.combo;">
+          <div class="grid-lettre">
+            <div class="content-section">
+              <span class="kana">{{ lettre.kana }}</span>
+              <span *ngIf="romaji" class="romaji">{{ lettre.romaji
+                }}</span>
+            </div>
+            <!-- <ion-icon class="volume sound-pronounciation" (click)="pronunciation(lettre.kana)" name="volume-high"></ion-icon> -->
+            <ion-icon *ngIf="sounds.includes(lettre.romaji)" class="volume sound-pronounciation"  (click)="playAudio(lettre.romaji)" name="volume-high"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <audio #audioPlayer> Your browser doesn't support the audio element. </audio>
+</ion-content>

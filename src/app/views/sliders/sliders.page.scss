@@ -1,0 +1,117 @@
+ion-header {
+    img {
+      border-radius: 0;
+      max-height: 35px;
+    }
+    ion-toolbar {
+      --background: #fff;
+    }
+}
+.ion-content-white {
+  --background: #fff;
+}
+
+.swiper-pagination {
+  display: none;
+}
+
+.splash_container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+    ion-slides {
+      padding-bottom: 35px;
+        .swiper-slide {
+            display: block;
+            h2 {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: #0D1B26;
+            }
+            img {
+                height: 170px;
+                pointer-events: none;
+            }
+            p {
+                font-size: 1.2rem;
+                line-height: 1.5;
+                color: #5B6069;
+                font-family: 'Open Sans';
+            }
+        }
+    }
+    .btn-container {
+      margin-top: auto!important;
+      width: 100%;
+      ion-button {
+        --background: var(--ion-color-primary);
+        --border-radius: 5px;
+        --box-shadow: none;
+        --padding-bottom: 22px;
+        --padding-top: 22px;
+        --padding-start: 0px;
+        --padding-end: 0px;
+        margin: 12px 0 0 0;
+        width: 100%;
+        font-weight: 700;
+        font-size: 1.05rem;
+        height: auto;
+        text-transform: uppercase;
+      }
+    }
+    .cta {
+      .connexion {
+        --color: var(--ion-color-primary);
+        --background: #fff;
+        --border-color: #CFD8DE;
+        --border-width: 1px;
+        --border-style: solid;
+        --border-radius: 5px;
+      }
+    }
+}
+:host ::ng-deep .swiper-pagination{
+  display: none;
+  .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+  }
+}
+.splash_container > div {
+  width: 100%;
+}
+.cgu-cta {
+  display: flex;
+  align-items: center;
+  ion-item {
+    --inner-padding-start: 0px;
+    --padding-start: 0;
+    --padding-end: 0;
+    --inner-padding-end: 0;
+    --min-height: 0px;
+    --ripple-color: transparent;
+    --background-hover: none;
+    --background: transparent;
+    z-index: 0;
+
+    ion-checkbox {
+      --border-radius: 5px;
+      margin: 0;
+    }
+    ion-label {
+      font-size: 0.9rem;
+      color: #0D1B26;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+  }
+  span {
+    font-size: 0.9rem;
+    color: #1891E7;
+    font-weight: 700;
+    display: inline-block;
+    margin-left: 6px;
+    margin-top: 1px;
+    cursor: pointer;
+  }
+}

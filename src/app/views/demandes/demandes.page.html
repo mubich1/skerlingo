@@ -1,0 +1,124 @@
+<ion-header mode="md">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mes demandes</ion-title>
+  </ion-toolbar>
+
+  <ion-segment scrollable value="service" [(ngModel)]="segmentModel">
+    <ion-segment-button value="service" layout="icon-start">
+      <ion-label>Service</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="specific" layout="icon-start">
+      <ion-label>Spécifique</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+  <div class="demandes skerlingo-padding">
+
+    <div *ngIf="!data">
+      <div class="demande-item" *ngFor="let number of [1, 2, 3]">
+        <div class="demande-type">
+          <ion-skeleton-text animated style="height: 100%; border-radius: 32%; width: 100%; margin: 0;">
+          </ion-skeleton-text>
+        </div>
+        <div>
+          <ion-skeleton-text animated
+            style="height: 16px !important; border-radius: 0; width: 100%; margin-bottom: 11px; margin-top: 10px;">
+          </ion-skeleton-text>
+          <ion-skeleton-text animated
+            style="height: 10px !important; border-radius: 0; width: 70%; margin-bottom: 15px;">
+          </ion-skeleton-text>
+          <div class="infos">
+            <div>
+              <p>Montant</p>
+              <ion-skeleton-text animated
+                style="height: 18px !important; border-radius: 0; width: 90px; margin-bottom: 15px;">
+              </ion-skeleton-text>
+            </div>
+            <div>
+              <p>État</p>
+              <ion-skeleton-text animated
+                style="height: 18px !important; border-radius: 0; width: 120px; margin-bottom: 15px;">
+              </ion-skeleton-text>
+            </div>
+          </div>
+          <ion-button>
+            <ion-skeleton-text animated style="height: 18px !important; border-radius: 0; width: 150px; margin: 0;">
+            </ion-skeleton-text>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="segmentModel === 'service'">
+      <div class="demande-item" *ngFor="let demande of data?.demandes_service" (click)="etapes_page(demande)">
+        <div class="demande-type">
+          <img src="{{ demande.type_image }}" alt="">
+        </div>
+        <div>
+          <h4>{{ demande.service_label }}</h4>
+          <h5>{{ demande.date }}</h5>
+          <div class="infos">
+            <div>
+              <p>Montant</p>
+              <span>{{ demande.prix }} euros</span>
+            </div>
+            <div>
+              <p>État</p>
+              <span [style.color]="'rgb('+ demande.statut_color +')'"
+                [style.background-color]="'rgb('+ demande.statut_color +',.2)'">{{ demande.statut_label }}</span>
+            </div>
+          </div>
+          <ion-button>
+            VOIR LES DÉTAILS
+          </ion-button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="segmentModel === 'specific'">
+      <div class="demande-item" *ngFor="let demande of data?.demandes_specific" (click)="etapes_page(demande)">
+        <div class="demande-type">
+          <img src="{{ demande.type_image }}" alt="">
+        </div>
+        <div>
+          <h4>{{ demande.service_label }}</h4>
+          <h5>{{ demande.date }}</h5>
+          <div class="infos">
+            <div>
+              <p>Montant</p>
+              <span>{{ demande.prix }} euros</span>
+            </div>
+            <div>
+              <p>État</p>
+              <span [style.color]="'rgb('+ demande.statut_color +')'"
+                [style.background-color]="'rgb('+ demande.statut_color +',.2)'">{{ demande.statut_label }}</span>
+            </div>
+          </div>
+          <ion-button>
+            VOIR LES DÉTAILS
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="data && data.demandes_service.length == 0 && segmentModel === 'service'" class="no-data">
+      <div>
+        <img src="assets/aucune-demandes.svg" alt="">
+        <h5>AUCUNE DEMANDE</h5>
+        <p>Vous n’avez actuellement aucune demande</p>
+      </div>
+    </div>
+
+    <div *ngIf="data && data.demandes_specific.length == 0 && segmentModel === 'specific'" class="no-data">
+      <div>
+        <img src="assets/aucune-demandes.svg" alt="">
+        <h5>AUCUNE DEMANDE</h5>
+        <p>Vous n’avez actuellement aucune demande</p>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

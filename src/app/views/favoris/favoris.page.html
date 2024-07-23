@@ -1,0 +1,62 @@
+<ion-header mode="md">
+  <ion-toolbar>
+    <ion-title>
+      <div class="toolbar-candidat">
+        <h4>Favorites</h4>
+        <div>
+        </div>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollY]="webApp ? false : true" [scrollEvents]="true" (ionScroll)='onContentScroll($event)'>
+  <div>
+    <div class="skerlingo-padding" *ngIf="!filtred_data && !modeSearch">
+      <div class="notification-item" *ngFor="let number of [1,2,3,4,5]">
+        <div>
+          <ion-skeleton-text class="ctas-slides" animated
+            style="height: 50px; border-radius: 15px; width: 50px;margin-right: 12px;">
+          </ion-skeleton-text>
+        </div>
+        <div style="width: 100%;">
+          <h4><span>
+              <ion-skeleton-text animated style="height: 9px !important; width: 130px;">
+              </ion-skeleton-text>
+            </span><span>
+              <ion-skeleton-text animated style="height: 6px !important; width: 45px;">
+              </ion-skeleton-text>
+            </span></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="skerlingo-padding">
+
+      <div class=" notification-item {{ notification.type }}" *ngFor="let notification of filtred_data"
+        [ngClass]="{'unseen-notification': notification.status == 0}">
+        <div class="lettre-img-container" [ngStyle]="{'background-color': notification?.color}">
+          <img [src]="notification?.illustration" alt="">
+          <img class="img-relative" [src]="notification.illustration_letter" alt="">
+        </div>
+        <div>
+          <div>
+            <h4>{{ notification.lettre_label }}</h4>
+            <p>{{ notification.lecon_label + ' - ' + notification.lecon_type }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="filtred_data && filtred_data.length == 0" class="no-data">
+      <div *ngIf="!modeSearch">
+        <img src="assets/favorites.svg" alt="">
+        <h5>{{ no_data_title }}</h5>
+        <p>{{ no_data_description }}</p>
+      </div>
+      <div *ngIf="modeSearch && searchKey">
+        <p>Aucun contact trouvé</p>
+      </div>
+    </div>
+  </div>
+</ion-content>
